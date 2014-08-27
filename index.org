@@ -1,0 +1,106 @@
+#+Title: Clojure
+#+Author: lvh
+#+Email: _@lvh.io
+
+#+OPTIONS: toc:nil reveal_rolling_links:nil num:nil reveal_history:true
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: lvh
+
+* Introduction
+** Who am I?
+
+   #+ATTR_HTML: :style border:none;width:80%
+   [[./media/lvh.svg]]
+
+   #+BEGIN_NOTES
+   * Software engineer (distributed systems, infosec)
+   * PSF Fellow
+   * Clojure hacker
+   #+END_NOTES
+
+** Rackspace
+
+   #+ATTR_HTML: :style border:none
+   [[./media/rackspace.svg]]
+
+** Who are you?
+
+   Raise your hand if you've played with...
+   * ... functional programming?
+   * ... a Lisp?
+   * ... Clojure?
+
+** What's Clojure?
+
+   ~(apply modern-lisp @jvm)~
+
+   #+BEGIN_NOTES
+   Also a first-class Javascript target, various experimental targets
+   #+END_NOTES
+
+* Big ideas
+
+** Immutability by default
+
+   * Default types are immutable
+   * You can alway import ~ArrayList~
+   * unfortunately also ~Date~ :-(
+
+** Functional programming
+
+   "85% functional"
+
+** Java interoperability
+
+* The value of values
+
+** Values /are/ immutable!
+
+   #+BEGIN_NOTES
+   Not just in Clojure; *semantically*, mutable values are lies
+   #+END_NOTES
+
+** "No-one can cross the same river twice"
+
+** "Simple" values
+
+   * Java: ~BigInt~, ~BigDecimal~...
+   * Python: ~int~, ~float~...
+
+** "Complex" values
+
+   E.g. collections
+
+   * Java: ~ArrayList~, ~HashSet~, ~HashMap~...
+   * Python: list, set, map...
+
+   #+BEGIN_NOTES
+   For some reason we don't accept this for complex values
+   #+END_NOTES
+
+* Concurrency
+
+** STM
+
+   * Transactions (ACI, not D)
+   * Since Clojure 1.0
+
+   #+BEGIN_NOTES
+   Transactions: atomicity, consistency, isolation (not durability)
+   #+END_NOTES
+
+** STM example
+
+* Macrology
+
+** Code ≡ data
+
+   Many basic "language features" are macros:
+
+   ~defn~, ~if~, ~and~...
+
+** Domain specific languages
+
+   * Default Lisper behavior
+
+* Questions?

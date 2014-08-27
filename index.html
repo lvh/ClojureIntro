@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Clojure</title>
+<meta name="author" content="(lvh)"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Clojure</h1>
+<h2>lvh</h2>
+<h2><a href="mailto:_@lvh.io">_@lvh.io</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2>Introduction</h2>
+</section>
+<section id="sec-1-1" >
+
+<h3>Who am I?</h3>
+<img src="./media/lvh.svg" alt="lvh.svg" style="border:none;width:80%" />
+
+<aside class="notes">
+<ul class="org-ul">
+<li>Software engineer (distributed systems, infosec)
+</li>
+<li>PSF Fellow
+</li>
+<li>Clojure hacker
+</li>
+</ul>
+</aside>
+
+</section>
+<section id="sec-1-2" >
+
+<h3>Rackspace</h3>
+<img src="./media/rackspace.svg" alt="rackspace.svg" style="border:none" />
+
+</section>
+<section id="sec-1-3" >
+
+<h3>Who are you?</h3>
+<p>
+Raise your hand if you&rsquo;ve played with&#x2026;
+</p>
+<ul class="org-ul">
+<li>&#x2026; functional programming?
+</li>
+<li>&#x2026; a Lisp?
+</li>
+<li>&#x2026; Clojure?
+</li>
+</ul>
+
+</section>
+<section id="sec-1-4" >
+
+<h3>What&rsquo;s Clojure?</h3>
+<p>
+<code>(apply modern-lisp @jvm)</code>
+</p>
+
+<aside class="notes">
+<p>
+Also a first-class Javascript target, various experimental targets
+</p>
+</aside>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Big ideas</h2>
+</section>
+<section id="sec-2-1" >
+
+<h3>Immutability by default</h3>
+<ul class="org-ul">
+<li>Default types are immutable
+</li>
+<li>You can alway import <code>ArrayList</code>
+</li>
+<li>unfortunately also <code>Date</code> :-(
+</li>
+</ul>
+
+</section>
+<section id="sec-2-2" >
+
+<h3>Functional programming</h3>
+<p>
+&ldquo;85% functional&rdquo;
+</p>
+
+</section>
+<section id="sec-2-3" >
+
+<h3>Java interoperability</h3>
+</section>
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>The value of values</h2>
+</section>
+<section id="sec-3-1" >
+
+<h3>Values <i>are</i> immutable!</h3>
+<aside class="notes">
+<p>
+Not just in Clojure; <b>semantically</b>, mutable values are lies
+</p>
+</aside>
+
+</section>
+<section id="sec-3-2" >
+
+<h3>&ldquo;No-one can cross the same river twice&rdquo;</h3>
+
+</section>
+<section id="sec-3-3" >
+
+<h3>&ldquo;Simple&rdquo; values</h3>
+<ul class="org-ul">
+<li>Java: <code>BigInt</code>, <code>BigDecimal</code>&#x2026;
+</li>
+<li>Python: <code>int</code>, <code>float</code>&#x2026;
+</li>
+</ul>
+
+</section>
+<section id="sec-3-4" >
+
+<h3>&ldquo;Complex&rdquo; values</h3>
+<p>
+E.g. collections
+</p>
+
+<ul class="org-ul">
+<li>Java: <code>ArrayList</code>, <code>HashSet</code>, <code>HashMap</code>&#x2026;
+</li>
+<li>Python: list, set, map&#x2026;
+</li>
+</ul>
+
+<aside class="notes">
+<p>
+For some reason we don&rsquo;t accept this for complex values
+</p>
+</aside>
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Concurrency</h2>
+</section>
+<section id="sec-4-1" >
+
+<h3>STM</h3>
+<ul class="org-ul">
+<li>Transactions (ACI, not D)
+</li>
+<li>Since Clojure 1.0
+</li>
+</ul>
+
+<aside class="notes">
+<p>
+Transactions: atomicity, consistency, isolation (not durability)
+</p>
+</aside>
+
+</section>
+<section id="sec-4-2" >
+
+<h3>STM example</h3>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Macrology</h2>
+</section>
+<section id="sec-5-1" >
+
+<h3>Code ≡ data</h3>
+<p>
+Many basic &ldquo;language features&rdquo; are macros:
+</p>
+
+<p>
+<code>defn</code>, <code>if</code>, <code>and</code>&#x2026;
+</p>
+
+</section>
+<section id="sec-5-2" >
+
+<h3>Domain specific languages</h3>
+<ul class="org-ul">
+<li>Default Lisper behavior
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Questions?</h2>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: true,
+                                slideNumber: true,
+        			rollingLinks: false,
+        			keyboard: true,
+        			overview: true,
+        			 // slide width
+        			 // slide height
+        			 // slide margin
+        			 // slide minimum scaling factor
+        			 // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+
+        			]
+        		});
+</script>
+</body>
+</html>
