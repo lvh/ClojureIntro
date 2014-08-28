@@ -61,7 +61,6 @@
 
 ** Java interoperability
 
-
 * The value of values
 
 ** Values /are/ immutable!
@@ -87,7 +86,6 @@
    #+BEGIN_NOTES
    For some reason we don't accept this for complex values
    #+END_NOTES
-
 
 * Concurrency
 
