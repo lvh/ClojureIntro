@@ -6,7 +6,7 @@
 <title>Clojure</title>
 <meta name="author" content="(lvh)"/>
 <link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
-<link rel="stylesheet" href="./reveal.js/css/theme/simple.css" id="theme"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -255,12 +255,97 @@ Many basic &ldquo;language features&rdquo; are macros:
 </section>
 <section id="sec-6-1" >
 
-<h3>Protocols</h3>
+<h3>Some polymorphism: Protocols</h3>
 </section>
 <section id="sec-6-2" >
 
-<h3>Multimethods</h3>
+<h3>More polymorphism: multimethods</h3>
+
 </section>
+<section id="sec-6-3" >
+
+<h3>OOP</h3>
+<p>
+<code>x.m(a, b, c)</code>
+</p>
+
+<p>
+Which <code>m</code>?
+</p>
+
+</section>
+<section id="sec-6-4" >
+
+<h3>Single dispatch</h3>
+<ul class="org-ul">
+<li><code>m</code> depends on type of <code>x</code>
+</li>
+<li>Java, C++, C#&#x2026;
+</li>
+</ul>
+
+<aside class="notes">
+<p>
+C# 4.0 apparently supports multimethods
+</p>
+</aside>
+
+</section>
+<section id="sec-6-5" >
+
+<h3>Bit more complicated in Python</h3>
+<p>
+Not just type of <code>x</code>, but:
+</p>
+
+<ul class="org-ul">
+<li>per-instance overrides
+</li>
+<li><code>__getattr__</code>, <code>__getattribute__</code> hacks
+</li>
+</ul>
+
+<p>
+Fundamentally, <code>x</code> still decides what <code>m</code> means!
+</p>
+
+</section>
+<section id="sec-6-6" >
+
+<h3>&ldquo;Sending a message&rdquo;</h3>
+<p>
+(Smalltalk parlance)
+</p>
+
+<p>
+<code>x &lt;- m(a, b, c)</code>
+</p>
+
+</section>
+<section id="sec-6-7" >
+
+<h3>No interesting differences</h3>
+<ul class="org-ul">
+<li>Logic is fixed
+</li>
+<li>Always more or less <code>fn(type(x))</code>
+</li>
+</ul>
+
+</section>
+<section id="sec-6-8" >
+
+<h3>Single dispatch not always enough</h3>
+
+</section>
+<section id="sec-6-9" >
+
+<h3>Multimethods to the rescue</h3>
+<p>
+Routing logic: any function!
+</p>
+</section>
+
 </section>
 <section>
 <section id="sec-7" >
@@ -276,6 +361,25 @@ Many basic &ldquo;language features&rdquo; are macros:
 </section>
 <section>
 <section id="sec-8" >
+
+<h2>Conclusion</h2>
+</section>
+<section id="sec-8-1" >
+
+<h3>A modern, pragmatic Lisp</h3>
+
+</section>
+<section id="sec-8-2" >
+
+<h3>Don&rsquo;t learn Clojure!</h3>
+<p>
+Going back is painful ;-)
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-9" >
 
 <h2>Questions?</h2>
 </section>
