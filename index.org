@@ -4,9 +4,10 @@
 
 #+OPTIONS: toc:nil reveal_rolling_links:nil num:nil reveal_history:true
 #+REVEAL_TRANS: linear
-#+REVEAL_THEME: simple
+#+REVEAL_THEME: lvh
 
 * Introduction
+
 ** Who am I?
 
    #+ATTR_HTML: :style border:none;width:80%
@@ -88,7 +89,6 @@
    #+END_NOTES
 
 * Concurrency
-
 ** STM
 
    Transactions (ACI, not D)
@@ -109,7 +109,6 @@
    #+END_NOTES
 
 * Macrology
-
 ** Code ≡ data
 
    Many basic "language features" are macros:
@@ -123,12 +122,62 @@
    * Default Lisper behavior
 
 * Polymorphism
-** Protocols
-** Multimethods
+** Some polymorphism: Protocols
+** More polymorphism: multimethods
+
+** OOP
+
+   ~x.m(a, b, c)~
+
+   Which ~m~?
+
+** Single dispatch
+
+   * ~m~ depends on type of ~x~
+   * Java, C++, C#...
+
+   #+BEGIN_NOTES
+   C# 4.0 apparently supports multimethods
+   #+END_NOTES
+
+** Bit more complicated in Python
+
+   Not just type of ~x~, but:
+
+   * per-instance overrides
+   * ~__getattr__~, ~__getattribute__~ hacks
+
+   Fundamentally, ~x~ still decides what ~m~ means!
+
+** "Sending a message"
+
+   (Smalltalk parlance)
+
+   ~x <- m(a, b, c)~
+
+** No interesting differences
+
+   * Logic is fixed
+   * Always more or less ~fn(type(x))~
+
+** Single dispatch not always enough
+
+** Multimethods to the rescue
+
+   Routing logic: any function!
+
 * ~core.logic~
 
 ** The Reasoned Schemer
 
    [[./media/reasonedschemer.jpg]]
+
+* Conclusion
+
+** A modern, pragmatic Lisp
+
+** Don't learn Clojure!
+
+   Going back is painful ;-)
 
 * Questions?
