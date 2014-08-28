@@ -4,7 +4,7 @@
 
 #+OPTIONS: toc:nil reveal_rolling_links:nil num:nil reveal_history:true
 #+REVEAL_TRANS: linear
-#+REVEAL_THEME: lvh
+#+REVEAL_THEME: simple
 
 * Introduction
 ** Who am I?
@@ -14,8 +14,6 @@
 
    #+BEGIN_NOTES
    * Software engineer (distributed systems, infosec)
-   * PSF Fellow
-   * Clojure hacker
    #+END_NOTES
 
 ** Rackspace
@@ -23,19 +21,30 @@
    #+ATTR_HTML: :style border:none
    [[./media/rackspace.svg]]
 
-** Who are you?
+** Python
 
-   Raise your hand if you've played with...
-   * ... functional programming?
-   * ... a Lisp?
-   * ... Clojure?
+   #+ATTR_HTML: :style border:none
+   [[./media/python.svg]]
+
+   #+BEGIN_NOTES
+   Fellow of the Python Software Foundation
+   #+END_NOTES
+
+** More importantly: Clojure!
+
+   #+ATTR_HTML: :style border:none
+   [[./media/clojure.png]]
+
+** Who are /you/?
+
+   Racket
 
 ** What's Clojure?
 
    ~(apply modern-lisp @jvm)~
 
    #+BEGIN_NOTES
-   Also a first-class Javascript target, various experimental targets
+   Official JS target, various experimental targets
    #+END_NOTES
 
 * Big ideas
@@ -51,6 +60,7 @@
    "85% functional"
 
 ** Java interoperability
+
 
 * The value of values
 
@@ -78,18 +88,27 @@
    For some reason we don't accept this for complex values
    #+END_NOTES
 
+
 * Concurrency
 
 ** STM
 
-   * Transactions (ACI, not D)
-   * Since Clojure 1.0
+   Transactions (ACI, not D)
 
    #+BEGIN_NOTES
    Transactions: atomicity, consistency, isolation (not durability)
+   Since Clojure 1.0
    #+END_NOTES
 
 ** STM example
+
+** ~@Raw~
+
+   #+BEGIN_NOTES
+   Not complaining about Steegmans or his class
+   He's a great guy, hates giving that class in Java as much as we hated getting it in Java
+   But @Raw makes me sad
+   #+END_NOTES
 
 * Macrology
 
@@ -99,8 +118,16 @@
 
    ~defn~, ~if~, ~and~...
 
+   (Just like Racket)
+
 ** Domain specific languages
 
    * Default Lisper behavior
+
+* ~core.logic~
+
+** The Reasoned Schemer
+
+   [[./media/reasonedschemer.jpg]]
 
 * Questions?
