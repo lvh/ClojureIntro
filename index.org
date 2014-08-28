@@ -37,7 +37,7 @@
 
 ** Who are /you/?
 
-   Racket
+   * Experience with FP? Lisps? Clojure?
 
 ** What's Clojure?
 
