@@ -124,6 +124,9 @@
 
    * Default Lisper behavior
 
+* Polymorphism
+** Protocols
+** Multimethods
 * ~core.logic~
 
 ** The Reasoned Schemer
