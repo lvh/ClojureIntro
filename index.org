@@ -125,9 +125,7 @@
 ** Some polymorphism: Protocols
 ** More polymorphism: multimethods
 
-** OOP
-
-   ~x.m(a, b, c)~
+** ~x.m(a, b, c)~
 
    Which ~m~?
 
@@ -140,11 +138,11 @@
    C# 4.0 apparently supports multimethods
    #+END_NOTES
 
-** Bit more complicated in Python
+** More choice in Python
 
    Not just type of ~x~:
 
-   * Specific instance ~x~
+   * Override ~x.m~ on the instance
    * ~__getattr(ibute)__~ hacks
 
    ~x~ still picks the ~m~!
@@ -153,12 +151,12 @@
 
    (Smalltalk parlance)
 
-   ~x <- m(a, b, c)~
+   ~x~ ← ~m(a, b, c)~
 
 ** No interesting differences
 
    * Logic is fixed
-   * Always more or less ~fn(type(x))~
+   * Up to ~x~ (usually even type of ~x~)
 
 ** Single dispatch not always enough
 

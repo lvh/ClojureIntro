@@ -264,11 +264,7 @@ Many basic &ldquo;language features&rdquo; are macros:
 </section>
 <section id="sec-6-3" >
 
-<h3>OOP</h3>
-<p>
-<code>x.m(a, b, c)</code>
-</p>
-
+<h3><code>x.m(a, b, c)</code></h3>
 <p>
 Which <code>m</code>?
 </p>
@@ -293,20 +289,20 @@ C# 4.0 apparently supports multimethods
 </section>
 <section id="sec-6-5" >
 
-<h3>Bit more complicated in Python</h3>
+<h3>More choice in Python</h3>
 <p>
 Not just type of <code>x</code>:
 </p>
 
 <ul class="org-ul">
-<li>Specific instance <code>x</code>
+<li>Override <code>x.m</code> on the instance
 </li>
 <li><code>__getattr(ibute)__</code> hacks
 </li>
 </ul>
 
 <p>
-<code>x</code> still decides <code>m</code>!
+<code>x</code> still picks the <code>m</code>!
 </p>
 
 </section>
@@ -318,7 +314,7 @@ Not just type of <code>x</code>:
 </p>
 
 <p>
-<code>x &lt;- m(a, b, c)</code>
+<code>x</code> ← <code>m(a, b, c)</code>
 </p>
 
 </section>
@@ -328,7 +324,7 @@ Not just type of <code>x</code>:
 <ul class="org-ul">
 <li>Logic is fixed
 </li>
-<li>Always more or less <code>fn(type(x))</code>
+<li>Up to <code>x</code> (usually even type of <code>x</code>)
 </li>
 </ul>
 
