@@ -142,12 +142,12 @@
 
 ** Bit more complicated in Python
 
-   Not just type of ~x~, but:
+   Not just type of ~x~:
 
-   * per-instance overrides
-   * ~__getattr__~, ~__getattribute__~ hacks
+   * Specific instance ~x~
+   * ~__getattr(ibute)__~ hacks
 
-   Fundamentally, ~x~ still decides what ~m~ means!
+   ~x~ still picks the ~m~!
 
 ** "Sending a message"
 
