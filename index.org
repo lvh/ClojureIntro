@@ -176,16 +176,16 @@
 
    Which ~m~?
 
-** Single dispatch
+** ~m~ depends on type of ~x~
 
-   * ~m~ depends on type of ~x~
+   * Single dispatch
    * Java, C++, C#...
 
    #+BEGIN_NOTES
    C# 4.0 apparently supports multimethods
    #+END_NOTES
 
-** More choice in Python
+** Python: bit more complicated
 
    Not just type of ~x~:
 
@@ -203,13 +203,13 @@
 ** No interesting differences
 
    * Logic is fixed
-   * Up to ~x~ (usually even type of ~x~)
+   * Always up to ~x~
 
 ** Single dispatch not always enough
 
-** Multimethods to the rescue
+** Multimethods
 
-   Routing logic: any function!
+   Routing logic: ~f(x)~
 
 * ~core.logic~
 
