@@ -105,6 +105,36 @@
    For some reason we don't accept this for compound values
    #+END_NOTES
 
+* Transducers
+** Fairly new feature
+
+   (1.7, beta)
+
+** Only bad part is the name
+
+   * What's a transducer?
+   * It's a reducing function transformer!
+   * What's a reducing function?
+   * It's a function you'd pass to reduce!
+
+** Monads
+
+   Just monoids in the category of endofunctors!
+
+   #+BEGIN_NOTES
+   My spell checker is not convinced these are words
+   #+END_NOTES
+
+** ~map~
+
+   ~(map f coll)~
+
+   ~[(f (coll 0)) (f (coll 1)) ...]~
+
+** ~reduce~
+
+   ~(defn sum [coll] (reduce + coll))~
+
 * Concurrency
 ** STM
 
