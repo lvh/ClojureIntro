@@ -86,20 +86,23 @@
 
 ** "No-one can cross the same river twice"
 
-** "Simple" values
+** "Single" values
 
+   #+ATTR_REVEAL: :frag roll-in
    * Java: ~BigInt~, ~BigDecimal~...
    * Python: ~int~, ~float~...
+   * Counterexample: ~java.util.Date~
 
-** "Complex" values
+** "Compound" values
 
    E.g. collections
 
-   * Java: ~ArrayList~, ~HashSet~, ~HashMap~...
+   * Java: ArrayList, Hash(Set|Map)
    * Python: list, set, map...
+   * Counterexample: ~tuple~
 
    #+BEGIN_NOTES
-   For some reason we don't accept this for complex values
+   For some reason we don't accept this for compound values
    #+END_NOTES
 
 * Concurrency
