@@ -118,13 +118,13 @@
 ** Only bad part is the name
 
    * What's a transducer?
-   * It's a reducing function transformer!
+     * It's a reducing function transformer!
    * What's a reducing function?
-   * It's a function you'd pass to reduce!
+     * It's a function you'd pass to reduce!
 
 ** Monads
 
-   Just monoids in the category of endofunctors!
+   Monoids in the category of endofunctors!
 
    #+BEGIN_NOTES
    My spell checker is not convinced these are words
