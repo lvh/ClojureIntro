@@ -62,6 +62,20 @@
 
 ** Java interoperability
 
+** Decomplection
+
+*** Complex
+
+    #+ATTR_REVEAL: :frag roll-in
+    * Does many things
+    * Related to, but ≠ hard!
+
+*** Simple
+
+    #+ATTR_REVEAL: :frag roll-in
+    * Does one thing
+    * Related to, but ≠ easy!
+
 * The value of values
 
 ** Values /are/ immutable!
