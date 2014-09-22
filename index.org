@@ -170,10 +170,11 @@
      * It's a reducing function transformer!
    * What's a reducing function?
      * It's a function you'd pass to reduce!
+   * Gee, thanks!
 
 ** Monads
 
-   Monoids in the category of endofunctors!
+   Just monoids in the category of endofunctors!
 
    #+BEGIN_NOTES
    My spell checker is not convinced these are words
