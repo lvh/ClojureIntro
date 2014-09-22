@@ -234,12 +234,35 @@
    But @Raw makes me sad
    #+END_NOTES
 
+** Why not locks?
+
+   #+ATTR_HTML: :style width:90%
+   [[./media/whynotzoidberg.jpg]]
+
+*** Not usable
+
+    * Hard to reason about
+    * Annoying to use
+
+*** Example
+
+*** "Just separate R and W locks!"
+
+    Number of failure modes just doubled too
+
+*** Failure mode
+
+    #+ATTR_REVEAL: :frag roll-in
+    * ~Segmentation fault~
+    * Data corruption
+    * Silent data corruption
+
 * Macrology
 ** Code ≡ data
 
    Many basic "language features" are macros:
 
-   ~defn~, ~if~, ~and~...
+   ~defn~, ~and~, ~cond~...
 
    (Just like Racket)
 
