@@ -271,8 +271,8 @@
    * Default Lisper behavior
 
 * Polymorphism
-** Some polymorphism: Protocols
-** More polymorphism: multimethods
+** Protocols
+** Multimethods
 
 ** ~x.m(a, b, c)~
 
