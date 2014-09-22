@@ -21,7 +21,6 @@
 
    [[./media/kul.gif]]
 
-
 ** Rackspace
 
    #+ATTR_HTML: :style width:90%
