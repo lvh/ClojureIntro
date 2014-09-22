@@ -52,6 +52,56 @@
    Official JS target, various experimental targets
    #+END_NOTES
 
+** What's so nice about it?
+
+   Lots of reasons:
+
+   * ...
+   * Immutability & functional programming
+   * JVM, but also JS back-ends
+   * "Just /do/ it already" (my favorite)
+
+** Just do it already
+
+   (Partial) static typing
+
+   * Python: talking about it forever
+     * Annotation syntax is enough, right?
+     * Finally going to make it in 3.whatever
+   * Clojure: ~core.typed~
+
+** Just do it already
+
+   Software transactional memory
+
+   * Python: 8 working prototypes
+     * ~2x slowdown from regular Python
+     * Some of the smartest people on it
+     * Difficult because Python is hard to optimize
+   * Clojure: STM since 1.0
+
+** Just do it already
+
+   Asynchronous programming
+
+   * Python: asyncio
+     * (caveat: I am the original author of async-pep)
+     * Yay! Yet another event loop framework!
+
+
+** Just do it already
+
+   Logic programming
+
+   * Python: bunch of weekend hacks
+   * Clojure: popular library
+
+** Ball of mud
+
+   Lisp is a ball of mud
+
+   $LANG is a shiny diamond
+
 * Big ideas
 
 ** Immutability by default
