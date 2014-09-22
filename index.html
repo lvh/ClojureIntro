@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <title>Clojure</title>
 <meta name="author" content="(lvh)"/>
+
 <link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
 <link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
 
@@ -36,7 +37,7 @@
 <section id="sec-1-1" >
 
 <h3>Who am I?</h3>
-<img src="./media/lvh.svg" alt="lvh.svg" style="border:none;width:80%" />
+<img src="./media/lvh.svg" alt="lvh.svg" style="width:80%" />
 
 <aside class="notes">
 <ul class="org-ul">
@@ -48,11 +49,17 @@
 </section>
 <section id="sec-1-2" >
 
-<h3>Rackspace</h3>
-<img src="./media/rackspace.svg" alt="rackspace.svg" style="border:none" />
+<h3>KUL</h3>
+<img src="./media/kul.gif" alt="kul.gif" />
 
 </section>
 <section id="sec-1-3" >
+
+<h3>Rackspace</h3>
+<img src="./media/rackspace.svg" alt="rackspace.svg" style="width:90%" />
+
+</section>
+<section id="sec-1-4" >
 
 <h3>Python</h3>
 <img src="./media/python.svg" alt="python.svg" style="border:none" />
@@ -64,13 +71,13 @@ Fellow of the Python Software Foundation
 </aside>
 
 </section>
-<section id="sec-1-4" >
+<section id="sec-1-5" >
 
 <h3>More importantly: Clojure!</h3>
 <img src="./media/clojure.png" alt="clojure.png" style="border:none" />
 
 </section>
-<section id="sec-1-5" >
+<section id="sec-1-6" >
 
 <h3>Who are <i>you</i>?</h3>
 <ul class="org-ul">
@@ -79,7 +86,7 @@ Fellow of the Python Software Foundation
 </ul>
 
 </section>
-<section id="sec-1-6" >
+<section id="sec-1-7" >
 
 <h3>What&rsquo;s Clojure?</h3>
 <p>
@@ -91,6 +98,116 @@ Fellow of the Python Software Foundation
 Official JS target, various experimental targets
 </p>
 </aside>
+
+</section>
+<section id="sec-1-8" >
+
+<h3>What&rsquo;s so nice about it?</h3>
+<p>
+Lots of reasons:
+</p>
+
+<ul class="org-ul">
+<li>&#x2026;
+</li>
+<li>Immutability &amp; functional programming
+</li>
+<li>JVM, but also JS back-ends
+</li>
+<li>&ldquo;Just <i>do</i> it already&rdquo; (my favorite)
+</li>
+</ul>
+
+</section>
+<section id="sec-1-9" >
+
+<h3>Just do it already</h3>
+<p>
+(Partial) static typing
+</p>
+
+<ul class="org-ul">
+<li>Python: talking about it forever
+<ul class="org-ul">
+<li>Annotation syntax is enough, right?
+</li>
+<li>Finally going to make it in 3.whatever
+</li>
+</ul>
+</li>
+<li>Clojure: <code>core.typed</code>
+</li>
+</ul>
+
+</section>
+<section id="sec-1-10" >
+
+<h3>Just do it already</h3>
+<p>
+Software transactional memory
+</p>
+
+<ul class="org-ul">
+<li>Python: 8 working prototypes
+<ul class="org-ul">
+<li>~2x slowdown from regular Python
+</li>
+<li>Some of the smartest people on it
+</li>
+<li>Difficult because Python is hard to optimize
+</li>
+</ul>
+</li>
+<li>Clojure: STM since 1.0
+</li>
+</ul>
+
+</section>
+<section id="sec-1-11" >
+
+<h3>Just do it already</h3>
+<p>
+Asynchronous programming
+</p>
+
+<ul class="org-ul">
+<li>Python: asyncio
+<ul class="org-ul">
+<li>(caveat: I am the original author of async-pep)
+</li>
+<li>Yay! Yet another event loop framework!
+</li>
+</ul>
+</li>
+</ul>
+
+
+</section>
+<section id="sec-1-12" >
+
+<h3>Just do it already</h3>
+<p>
+Logic programming
+</p>
+
+<ul class="org-ul">
+<li>Python: bunch of weekend hacks
+</li>
+<li>Clojure: popular library
+</li>
+</ul>
+
+</section>
+<section id="sec-1-13" >
+
+<h3>Ball of mud</h3>
+<p>
+Lisp is a ball of mud
+</p>
+
+<p>
+$LANG is a shiny diamond
+</p>
 </section>
 
 </section>
@@ -123,6 +240,32 @@ Official JS target, various experimental targets
 <section id="sec-2-3" >
 
 <h3>Java interoperability</h3>
+
+</section>
+<section id="sec-2-4" >
+
+<h3>Decomplection</h3>
+</section>
+<section id="sec-2-4-1" >
+
+<h4>Complex</h4>
+<ul class="org-ul">
+<li class="fragment roll-in">Does many things
+</li>
+<li class="fragment roll-in">Related to, but ≠ hard!
+</li>
+</ul>
+
+</section>
+<section id="sec-2-4-2" >
+
+<h4>Simple</h4>
+<ul class="org-ul">
+<li class="fragment roll-in">Does one thing
+</li>
+<li class="fragment roll-in">Related to, but ≠ easy!
+</li>
+</ul>
 </section>
 
 </section>
@@ -148,32 +291,36 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </section>
 <section id="sec-3-3" >
 
-<h3>&ldquo;Simple&rdquo; values</h3>
+<h3>&ldquo;Single&rdquo; values</h3>
 <ul class="org-ul">
-<li>Java: <code>BigInt</code>, <code>BigDecimal</code>&#x2026;
+<li class="fragment roll-in">Java: <code>BigInt</code>, <code>BigDecimal</code>&#x2026;
 </li>
-<li>Python: <code>int</code>, <code>float</code>&#x2026;
+<li class="fragment roll-in">Python: <code>int</code>, <code>float</code>&#x2026;
+</li>
+<li class="fragment roll-in">Counterexample: <code>java.util.Date</code>
 </li>
 </ul>
 
 </section>
 <section id="sec-3-4" >
 
-<h3>&ldquo;Complex&rdquo; values</h3>
+<h3>&ldquo;Compound&rdquo; values</h3>
 <p>
 E.g. collections
 </p>
 
 <ul class="org-ul">
-<li>Java: <code>ArrayList</code>, <code>HashSet</code>, <code>HashMap</code>&#x2026;
+<li>Java: ArrayList, Hash(Set|Map)
 </li>
 <li>Python: list, set, map&#x2026;
+</li>
+<li>Counterexample: <code>tuple</code>
 </li>
 </ul>
 
 <aside class="notes">
 <p>
-For some reason we don&rsquo;t accept this for complex values
+For some reason we don&rsquo;t accept this for compound values
 </p>
 </aside>
 </section>
@@ -182,9 +329,129 @@ For some reason we don&rsquo;t accept this for complex values
 <section>
 <section id="sec-4" >
 
-<h2>Concurrency</h2>
+<h2>Transducers</h2>
 </section>
 <section id="sec-4-1" >
+
+<h3>Fairly new feature</h3>
+<p>
+(1.7, beta)
+</p>
+
+</section>
+<section id="sec-4-2" >
+
+<h3>Only bad part is the name</h3>
+<ul class="org-ul">
+<li>What&rsquo;s a transducer?
+<ul class="org-ul">
+<li>It&rsquo;s a reducing function transformer!
+</li>
+</ul>
+</li>
+<li>What&rsquo;s a reducing function?
+<ul class="org-ul">
+<li>It&rsquo;s a function you&rsquo;d pass to reduce!
+</li>
+</ul>
+</li>
+<li>Gee, thanks!
+</li>
+</ul>
+
+</section>
+<section id="sec-4-3" >
+
+<h3>Monads</h3>
+<p>
+Just monoids in the category of endofunctors!
+</p>
+
+<aside class="notes">
+<p>
+My spell checker is not convinced these are words
+</p>
+</aside>
+
+</section>
+<section id="sec-4-4" >
+
+<h3><code>map</code></h3>
+<p>
+<code>(map f coll)</code>
+</p>
+
+<p>
+<code>[(f (coll 0)) (f (coll 1)) ...]</code>
+</p>
+
+<p>
+<code>(map inc [1 2 3]) ;; =&gt; (2 3 4)</code>
+</p>
+
+</section>
+<section id="sec-4-5" >
+
+<h3><code>reduce</code></h3>
+<p>
+<code>(defn sum [coll] (reduce + coll))</code>
+</p>
+
+</section>
+<section id="sec-4-6" >
+
+<h3>Big idea</h3>
+<ul class="org-ul">
+<li>Extract the <i>essence</i> of map, reduce&#x2026;
+</li>
+<li>Specifically, remove collections
+</li>
+</ul>
+
+</section>
+<section id="sec-4-7" >
+
+<h3>Processes</h3>
+<ul class="org-ul">
+<li>Succession of steps
+</li>
+<li>Each step takes an input
+</li>
+<li>Example: building a collection
+</li>
+<li>Generally: seeded left reduce
+</li>
+</ul>
+
+</section>
+<section id="sec-4-8" >
+
+<h3>Example with map</h3>
+<p>
+<code>(map f)</code>
+</p>
+
+<ul class="org-ul">
+<li>Compare <code>(map f coll)</code>
+</li>
+</ul>
+
+</section>
+<section id="sec-4-9" >
+
+<h3>Big example</h3>
+<p>
+<del>Stole</del> Borrowed from Rich Hickey at Strange Loop
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Concurrency</h2>
+</section>
+<section id="sec-5-1" >
 
 <h3>STM</h3>
 <p>
@@ -199,12 +466,12 @@ Since Clojure 1.0
 </aside>
 
 </section>
-<section id="sec-4-2" >
+<section id="sec-5-2" >
 
 <h3>STM example</h3>
 
 </section>
-<section id="sec-4-3" >
+<section id="sec-5-3" >
 
 <h3><code>@Raw</code></h3>
 <aside class="notes">
@@ -214,15 +481,58 @@ He&rsquo;s a great guy, hates giving that class in Java as much as we hated gett
 But @Raw makes me sad
 </p>
 </aside>
+
+</section>
+<section id="sec-5-4" >
+
+<h3>Why not locks?</h3>
+<img src="./media/whynotzoidberg.jpg" alt="whynotzoidberg.jpg" style="width:90%" />
+
+</section>
+<section id="sec-5-4-1" >
+
+<h4>Not usable</h4>
+<ul class="org-ul">
+<li>Hard to reason about
+</li>
+<li>Annoying to use
+</li>
+</ul>
+
+</section>
+<section id="sec-5-4-2" >
+
+<h4>Example</h4>
+
+</section>
+<section id="sec-5-4-3" >
+
+<h4>&ldquo;Just separate R and W locks!&rdquo;</h4>
+<p>
+Number of failure modes just doubled too
+</p>
+
+</section>
+<section id="sec-5-4-4" >
+
+<h4>Failure mode</h4>
+<ul class="org-ul">
+<li class="fragment roll-in"><code>Segmentation fault</code>
+</li>
+<li class="fragment roll-in">Data corruption
+</li>
+<li class="fragment roll-in">Silent data corruption
+</li>
+</ul>
 </section>
 
 </section>
 <section>
-<section id="sec-5" >
+<section id="sec-6" >
 
 <h2>Macrology</h2>
 </section>
-<section id="sec-5-1" >
+<section id="sec-6-1" >
 
 <h3>Code ≡ data</h3>
 <p>
@@ -230,7 +540,7 @@ Many basic &ldquo;language features&rdquo; are macros:
 </p>
 
 <p>
-<code>defn</code>, <code>if</code>, <code>and</code>&#x2026;
+<code>defn</code>, <code>and</code>, <code>cond</code>&#x2026;
 </p>
 
 <p>
@@ -238,7 +548,7 @@ Many basic &ldquo;language features&rdquo; are macros:
 </p>
 
 </section>
-<section id="sec-5-2" >
+<section id="sec-6-2" >
 
 <h3>Domain specific languages</h3>
 <ul class="org-ul">
@@ -249,20 +559,20 @@ Many basic &ldquo;language features&rdquo; are macros:
 
 </section>
 <section>
-<section id="sec-6" >
+<section id="sec-7" >
 
 <h2>Polymorphism</h2>
 </section>
-<section id="sec-6-1" >
+<section id="sec-7-1" >
 
-<h3>Some polymorphism: Protocols</h3>
+<h3>Protocols</h3>
 </section>
-<section id="sec-6-2" >
+<section id="sec-7-2" >
 
-<h3>More polymorphism: multimethods</h3>
+<h3>Multimethods</h3>
 
 </section>
-<section id="sec-6-3" >
+<section id="sec-7-3" >
 
 <h3><code>x.m(a, b, c)</code></h3>
 <p>
@@ -270,11 +580,11 @@ Which <code>m</code>?
 </p>
 
 </section>
-<section id="sec-6-4" >
+<section id="sec-7-4" >
 
-<h3>Single dispatch</h3>
+<h3><code>m</code> depends on type of <code>x</code></h3>
 <ul class="org-ul">
-<li><code>m</code> depends on type of <code>x</code>
+<li>Single dispatch
 </li>
 <li>Java, C++, C#&#x2026;
 </li>
@@ -287,9 +597,9 @@ C# 4.0 apparently supports multimethods
 </aside>
 
 </section>
-<section id="sec-6-5" >
+<section id="sec-7-5" >
 
-<h3>More choice in Python</h3>
+<h3>Python: bit more complicated</h3>
 <p>
 Not just type of <code>x</code>:
 </p>
@@ -306,7 +616,7 @@ Not just type of <code>x</code>:
 </p>
 
 </section>
-<section id="sec-6-6" >
+<section id="sec-7-6" >
 
 <h3>&ldquo;Sending a message&rdquo;</h3>
 <p>
@@ -318,37 +628,37 @@ Not just type of <code>x</code>:
 </p>
 
 </section>
-<section id="sec-6-7" >
+<section id="sec-7-7" >
 
 <h3>No interesting differences</h3>
 <ul class="org-ul">
 <li>Logic is fixed
 </li>
-<li>Up to <code>x</code> (usually even type of <code>x</code>)
+<li>Always up to <code>x</code>
 </li>
 </ul>
 
 </section>
-<section id="sec-6-8" >
+<section id="sec-7-8" >
 
 <h3>Single dispatch not always enough</h3>
 
 </section>
-<section id="sec-6-9" >
+<section id="sec-7-9" >
 
-<h3>Multimethods to the rescue</h3>
+<h3>Multimethods</h3>
 <p>
-Routing logic: any function!
+Routing logic: <code>f(x)</code>
 </p>
 </section>
 
 </section>
 <section>
-<section id="sec-7" >
+<section id="sec-8" >
 
 <h2><code>core.logic</code></h2>
 </section>
-<section id="sec-7-1" >
+<section id="sec-8-1" >
 
 <h3>The Reasoned Schemer</h3>
 <img src="./media/reasonedschemer.jpg" alt="reasonedschemer.jpg" />
@@ -356,16 +666,16 @@ Routing logic: any function!
 
 </section>
 <section>
-<section id="sec-8" >
+<section id="sec-9" >
 
 <h2>Conclusion</h2>
 </section>
-<section id="sec-8-1" >
+<section id="sec-9-1" >
 
 <h3>A modern, pragmatic Lisp</h3>
 
 </section>
-<section id="sec-8-2" >
+<section id="sec-9-2" >
 
 <h3>Don&rsquo;t learn Clojure!</h3>
 <p>
@@ -375,52 +685,53 @@ Going back is painful ;-)
 
 </section>
 <section>
-<section id="sec-9" >
+<section id="sec-10" >
 
 <h2>Questions?</h2>
 </section>
+<section id="sec-10-1" >
+
+<h3>Suggested rants</h3>
+<ul class="org-ul">
+<li>Type systems (Scala)
+</li>
+</ul>
+</section>
 </section>
 </div>
 </div>
+
 <script src="./reveal.js/lib/js/head.min.js"></script>
 <script src="./reveal.js/js/reveal.min.js"></script>
+
 <script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
 
-        		// Full list of configuration options available here:
-        		// https://github.com/hakimel/reveal.js#configuration
-        		Reveal.initialize({
-        			controls: true,
-        			progress: true,
-        			history: true,
-        			center: true,
-                                slideNumber: true,
-        			rollingLinks: false,
-        			keyboard: true,
-        			overview: true,
-        			 // slide width
-        			 // slide height
-        			 // slide margin
-        			 // slide minimum scaling factor
-        			 // slide maximum scaling factor
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+rollingLinks: false,
+keyboard: true,
+overview: true,
 
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
 
-        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
-        			transitionSpeed: 'default',
-
-        			// Optional libraries used to extend on reveal.js
-        			dependencies: [
-        				{ src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
-        				,{ src: './reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
-        				,{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
-        				,{ src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-        				,{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
-        				,{ src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-        				// { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-        				// { src: './reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-
-        			]
-        		});
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+]
+});
 </script>
 </body>
 </html>
