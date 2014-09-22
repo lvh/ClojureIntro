@@ -186,9 +186,33 @@
 
    ~[(f (coll 0)) (f (coll 1)) ...]~
 
+   ~(map inc [1 2 3]) ;; => (2 3 4)~
+
 ** ~reduce~
 
    ~(defn sum [coll] (reduce + coll))~
+
+** Big idea
+
+   * Extract the /essence/ of map, reduce...
+   * Specifically, remove collections
+
+** Processes
+
+   * Succession of steps
+   * Each step takes an input
+   * Example: building a collection
+   * Generally: seeded left reduce
+
+** Example with map
+
+   ~(map f)~
+
+   * Compare ~(map f coll)~
+
+** Big example
+
+   +Stole+ Borrowed from Rich Hickey at Strange Loop
 
 * Concurrency
 ** STM
