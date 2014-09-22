@@ -328,3 +328,6 @@
    Going back is painful ;-)
 
 * Questions?
+** Suggested rants
+
+   * Type systems (Scala)
