@@ -42,7 +42,7 @@
 
 ** Who are /you/?
 
-   * Experience with FP? Lisps? Clojure?
+   Experience with FP? Lisps? Clojure?
 
 ** What's Clojure?
 
