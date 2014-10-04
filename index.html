@@ -95,7 +95,7 @@ Fellow of the Python Software Foundation
 
 <aside class="notes">
 <p>
-Official JS target, various experimental targets
+Official JS target, semi-mature CLR target, various experimental targets
 </p>
 </aside>
 
@@ -108,13 +108,13 @@ Lots of reasons:
 </p>
 
 <ul class="org-ul">
-<li>&#x2026;
+<li class="fragment roll-in">Immutability &amp; functional programming
 </li>
-<li>Immutability &amp; functional programming
+<li class="fragment roll-in">JVM, but also JS back-ends
 </li>
-<li>JVM, but also JS back-ends
+<li class="fragment roll-in">&ldquo;Just <i>do</i> it already&rdquo; (my favorite)
 </li>
-<li>&ldquo;Just <i>do</i> it already&rdquo; (my favorite)
+<li class="fragment roll-in">&#x2026;
 </li>
 </ul>
 
@@ -127,15 +127,15 @@ Lots of reasons:
 </p>
 
 <ul class="org-ul">
-<li>Python: talking about it forever
+<li class="fragment roll-in">Python: talking about it forever
 <ul class="org-ul">
-<li>Annotation syntax is enough, right?
+<li class="fragment roll-in">Annotation syntax is enough, right?
 </li>
-<li>Finally going to make it in 3.whatever
+<li class="fragment roll-in">Finally going to make it in 3.whatever
 </li>
 </ul>
 </li>
-<li>Clojure: <code>core.typed</code>
+<li class="fragment roll-in">Clojure: <code>core.typed</code>
 </li>
 </ul>
 
@@ -148,17 +148,17 @@ Software transactional memory
 </p>
 
 <ul class="org-ul">
-<li>Python: 8 working prototypes
+<li class="fragment roll-in">Python: 8 working prototypes
 <ul class="org-ul">
-<li>~2x slowdown from regular Python
+<li class="fragment roll-in">~2x slowdown from regular Python
 </li>
-<li>Some of the smartest people on it
+<li class="fragment roll-in">Some of the smartest people on it
 </li>
-<li>Difficult because Python is hard to optimize
+<li class="fragment roll-in">Difficult because Python is hard to optimize
 </li>
 </ul>
 </li>
-<li>Clojure: STM since 1.0
+<li class="fragment roll-in">Clojure: STM since 1.0
 </li>
 </ul>
 
@@ -171,16 +171,23 @@ Asynchronous programming
 </p>
 
 <ul class="org-ul">
-<li>Python: asyncio
+<li class="fragment roll-in">Python: asyncio
 <ul class="org-ul">
-<li>(caveat: I am the original author of async-pep)
+<li class="fragment roll-in">(caveat: I am the original author of async-pep)
 </li>
-<li>Yay! Yet another event loop framework!
+<li class="fragment roll-in">Yay! Yet another event loop framework!
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Clojure: core.async
+<ul class="org-ul">
+<li class="fragment roll-in">Supports both threads &amp; IOC
+</li>
+<li class="fragment roll-in">Goroutines? Library, not language feature
 </li>
 </ul>
 </li>
 </ul>
-
 
 </section>
 <section id="sec-1-12" >
@@ -191,14 +198,22 @@ Logic programming
 </p>
 
 <ul class="org-ul">
-<li>Python: bunch of weekend hacks
+<li class="fragment roll-in">Python: bunch of weekend hacks
 </li>
-<li>Clojure: popular library
+<li class="fragment roll-in">Clojure: popular library
 </li>
 </ul>
 
 </section>
 <section id="sec-1-13" >
+
+<h3>Not about Python</h3>
+<p>
+Most other languages are the same or worse
+</p>
+
+</section>
+<section id="sec-1-14" >
 
 <h3>Ball of mud</h3>
 <p>
@@ -286,7 +301,10 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </section>
 <section id="sec-3-2" >
 
-<h3>&ldquo;No-one can cross the same river twice&rdquo;</h3>
+<h3>&ldquo;Can&rsquo;t cross the same river twice&rdquo;</h3>
+<p>
+(Heraclitus, ~500 BC)
+</p>
 
 </section>
 <section id="sec-3-3" >
@@ -310,11 +328,11 @@ E.g. collections
 </p>
 
 <ul class="org-ul">
-<li>Java: ArrayList, Hash(Set|Map)
+<li class="fragment roll-in">Java: ArrayList, Hash(Set|Map)
 </li>
-<li>Python: list, set, map&#x2026;
+<li class="fragment roll-in">Python: list, set, map&#x2026;
 </li>
-<li>Counterexample: tuple
+<li class="fragment roll-in">Counterexample: tuple
 </li>
 </ul>
 
@@ -343,19 +361,19 @@ For some reason we don&rsquo;t accept this for compound values
 
 <h3>Only bad part is the name</h3>
 <ul class="org-ul">
-<li>What&rsquo;s a transducer?
+<li class="fragment roll-in">What&rsquo;s a transducer?
 <ul class="org-ul">
 <li>It&rsquo;s a reducing function transformer!
 </li>
 </ul>
 </li>
-<li>What&rsquo;s a reducing function?
+<li class="fragment roll-in">What&rsquo;s a reducing function?
 <ul class="org-ul">
 <li>It&rsquo;s a function you&rsquo;d pass to reduce!
 </li>
 </ul>
 </li>
-<li>Gee, thanks!
+<li class="fragment roll-in">Gee, thanks!
 </li>
 </ul>
 
@@ -687,9 +705,15 @@ Going back is painful ;-)
 <section>
 <section id="sec-10" >
 
+<h2>Thank you!</h2>
+</section>
+</section>
+<section>
+<section id="sec-11" >
+
 <h2>Questions?</h2>
 </section>
-<section id="sec-10-1" >
+<section id="sec-11-1" >
 
 <h3>Suggested rants</h3>
 <ul class="org-ul">

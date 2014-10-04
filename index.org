@@ -49,23 +49,26 @@
    ~(apply modern-lisp @jvm)~
 
    #+BEGIN_NOTES
-   Official JS target, various experimental targets
+   Official JS target, semi-mature CLR target, various experimental targets
    #+END_NOTES
 
 ** What's so nice about it?
 
    Lots of reasons:
 
-   * ...
+   #+ATTR_REVEAL: :frag roll-in
    * Immutability & functional programming
    * JVM, but also JS back-ends
    * "Just /do/ it already" (my favorite)
+   * ...
 
 ** Just do it already
 
    (Partial) static typing
 
+   #+ATTR_REVEAL: :frag roll-in
    * Python: talking about it forever
+     #+ATTR_REVEAL: :frag roll-in
      * Annotation syntax is enough, right?
      * Finally going to make it in 3.whatever
    * Clojure: ~core.typed~
@@ -74,7 +77,9 @@
 
    Software transactional memory
 
+   #+ATTR_REVEAL: :frag roll-in
    * Python: 8 working prototypes
+     #+ATTR_REVEAL: :frag roll-in
      * ~2x slowdown from regular Python
      * Some of the smartest people on it
      * Difficult because Python is hard to optimize
@@ -84,17 +89,27 @@
 
    Asynchronous programming
 
+   #+ATTR_REVEAL: :frag roll-in
    * Python: asyncio
+     #+ATTR_REVEAL: :frag roll-in
      * (caveat: I am the original author of async-pep)
      * Yay! Yet another event loop framework!
-
+   * Clojure: core.async
+     #+ATTR_REVEAL: :frag roll-in
+     * Supports both threads & IOC
+     * Goroutines? Library, not language feature
 
 ** Just do it already
 
    Logic programming
 
+   #+ATTR_REVEAL: :frag roll-in
    * Python: bunch of weekend hacks
    * Clojure: popular library
+
+** Not about Python
+
+   Most other languages are the same or worse
 
 ** Ball of mud
 
@@ -138,7 +153,9 @@
    Not just in Clojure; *semantically*, mutable values are lies
    #+END_NOTES
 
-** "No-one can cross the same river twice"
+** "Can't cross the same river twice"
+
+   (Heraclitus, ~500 BC)
 
 ** "Single" values
 
@@ -151,6 +168,7 @@
 
    E.g. collections
 
+   #+ATTR_REVEAL: :frag roll-in
    * Java: ArrayList, Hash(Set|Map)
    * Python: list, set, map...
    * Counterexample: tuple
@@ -166,6 +184,7 @@
 
 ** Only bad part is the name
 
+   #+ATTR_REVEAL: :frag roll-in
    * What's a transducer?
      * It's a reducing function transformer!
    * What's a reducing function?
@@ -320,14 +339,16 @@
    [[./media/reasonedschemer.jpg]]
 
 * Conclusion
-
 ** A modern, pragmatic Lisp
 
 ** Don't learn Clojure!
 
    Going back is painful ;-)
 
+* Thank you!
 * Questions?
 ** Suggested rants
 
-   * Type systems (Scala)
+   * Bad type systems
+     * Scala
+     * Go
