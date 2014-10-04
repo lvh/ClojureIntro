@@ -67,6 +67,7 @@
 <aside class="notes">
 <p>
 Fellow of the Python Software Foundation
+Staff member of PyCon US
 </p>
 </aside>
 
@@ -222,7 +223,15 @@ Lisp is a ball of mud
 <p>
 $LANG is a shiny diamond
 </p>
+
+<aside class="notes">
+<p>
+Usually not considered a compliment
+But hopefully I&rsquo;ve piqued your interest
+</p>
+</aside>
 </section>
+
 
 </section>
 <section>
@@ -238,7 +247,7 @@ $LANG is a shiny diamond
 </li>
 <li>You can alway import <code>ArrayList</code>
 </li>
-<li>unfortunately also <code>Date</code> :-(
+<li>&#x2026; unfortunately also <code>Date</code> :-(
 </li>
 </ul>
 
@@ -340,6 +349,35 @@ E.g. collections
 For some reason we don&rsquo;t accept this for compound values
 </p>
 </aside>
+
+</section>
+<section id="sec-3-5" >
+
+<h3>Persistent data structures</h3>
+<p>
+TODO: talk about persistent data structures
+</p>
+
+</section>
+<section id="sec-3-6" >
+
+<h3>Performance?</h3>
+<ul class="org-ul">
+<li>Typically not an issue
+<ul class="org-ul">
+<li>JVM is an impressive piece of engineering
+</li>
+</ul>
+</li>
+<li>There&rsquo;s always options:
+<ul class="org-ul">
+<li><code>transient</code>, <code>persistent!</code>
+</li>
+<li>import a faster Java alternative
+</li>
+</ul>
+</li>
+</ul>
 </section>
 
 </section>
@@ -471,9 +509,14 @@ My spell checker is not convinced these are words
 <section id="sec-5-1" >
 
 <h3>STM</h3>
-<p>
-Transactions (ACI, not D)
-</p>
+<ul class="org-ul">
+<li class="fragment roll-in">Software transactional memory
+</li>
+<li class="fragment roll-in">Transactions (ACI, not D)
+</li>
+<li class="fragment roll-in">Backed by MVCC
+</li>
+</ul>
 
 <aside class="notes">
 <p>
@@ -502,37 +545,48 @@ But @Raw makes me sad
 </section>
 <section id="sec-5-4" >
 
-<h3>Why not locks?</h3>
-<img src="./media/whynotzoidberg.jpg" alt="whynotzoidberg.jpg" style="width:90%" />
+<h3>Need a synchronization primitive?</h3>
+<img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-5-4-1" >
+<section id="sec-5-5" >
 
-<h4>Not usable</h4>
+<h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
-<li>Hard to reason about
+<li class="fragment roll-in">Very tricky to reason about
+<ul class="org-ul">
+<li class="fragment roll-in">Deadlock free?
 </li>
-<li>Annoying to use
+<li class="fragment roll-in">Livelock free?
+</li>
+<li class="fragment roll-in">Are you <i>sure</i>?
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Some patterns are easy, but inefficient
+<ul class="org-ul">
+<li>Example: GIL
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Requires extensive error handling
+<ul class="org-ul">
+<li>Yay, orphaned locks
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Worst part: often <i>looks</i> like it&rsquo;s working
+<ul class="org-ul">
+<li>&#x2026; even when the program is totally incorrect
+</li>
+</ul>
 </li>
 </ul>
 
 </section>
-<section id="sec-5-4-2" >
+<section id="sec-5-6" >
 
-<h4>Example</h4>
-
-</section>
-<section id="sec-5-4-3" >
-
-<h4>&ldquo;Just separate R and W locks!&rdquo;</h4>
-<p>
-Number of failure modes just doubled too
-</p>
-
-</section>
-<section id="sec-5-4-4" >
-
-<h4>Failure mode</h4>
+<h3>Failure modes</h3>
 <ul class="org-ul">
 <li class="fragment roll-in"><code>Segmentation fault</code>
 </li>
@@ -541,6 +595,22 @@ Number of failure modes just doubled too
 <li class="fragment roll-in">Silent data corruption
 </li>
 </ul>
+
+</section>
+<section id="sec-5-7" >
+
+<h3>Comparison</h3>
+<p>
+Manual memory management
+</p>
+
+<p>
+versus
+</p>
+
+<p>
+GC and lifetime analysis
+</p>
 </section>
 
 </section>
@@ -618,7 +688,7 @@ C# 4.0 apparently supports multimethods
 
 <h3>Python: bit more complicated</h3>
 <p>
-Not just type of <code>x</code>:
+Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 <ul class="org-ul">

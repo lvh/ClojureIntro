@@ -33,6 +33,7 @@
 
    #+BEGIN_NOTES
    Fellow of the Python Software Foundation
+   Staff member of PyCon US
    #+END_NOTES
 
 ** More importantly: Clojure!
@@ -117,13 +118,19 @@
 
    $LANG is a shiny diamond
 
+   #+BEGIN_NOTES
+   Usually not considered a compliment
+   But hopefully I've piqued your interest
+   #+END_NOTES
+
+
 * Big ideas
 
 ** Immutability by default
 
    * Default types are immutable
    * You can alway import ~ArrayList~
-   * unfortunately also ~Date~ :-(
+   * ... unfortunately also ~Date~ :-(
 
 ** Functional programming
 
@@ -176,6 +183,18 @@
    #+BEGIN_NOTES
    For some reason we don't accept this for compound values
    #+END_NOTES
+
+** Persistent data structures
+
+   TODO: talk about persistent data structures
+
+** Performance?
+
+   * Typically not an issue
+     * JVM is an impressive piece of engineering
+   * There's always options:
+     * ~transient~, ~persistent!~
+     * import a faster Java alternative
 
 * Transducers
 ** Fairly new feature
@@ -236,7 +255,10 @@
 * Concurrency
 ** STM
 
-   Transactions (ACI, not D)
+   #+ATTR_REVEAL: :frag roll-in
+   * Software transactional memory
+   * Transactions (ACI, not D)
+   * Backed by MVCC
 
    #+BEGIN_NOTES
    Transactions: atomicity, consistency, isolation (not durability)
@@ -253,28 +275,40 @@
    But @Raw makes me sad
    #+END_NOTES
 
-** Why not locks?
+** Need a synchronization primitive?
 
    #+ATTR_HTML: :style width:90%
-   [[./media/whynotzoidberg.jpg]]
+   [[./media/whynotzoidberg.png]]
 
-*** Not usable
+** Locks are /incredibly/ hard to use
 
-    * Hard to reason about
-    * Annoying to use
+   #+ATTR_REVEAL: :frag roll-in
+   * Very tricky to reason about
+     #+ATTR_REVEAL: :frag roll-in
+     * Deadlock free?
+     * Livelock free?
+     * Are you /sure/?
+   * Some patterns are easy, but inefficient
+     * Example: GIL
+   * Requires extensive error handling
+     * Yay, orphaned locks
+   * Worst part: often /looks/ like it's working
+     * ... even when the program is totally incorrect
 
-*** Example
-
-*** "Just separate R and W locks!"
-
-    Number of failure modes just doubled too
-
-*** Failure mode
+** Failure modes
 
     #+ATTR_REVEAL: :frag roll-in
     * ~Segmentation fault~
     * Data corruption
     * Silent data corruption
+
+** Comparison
+
+    Manual memory management
+
+    versus
+
+    GC and lifetime analysis
 
 * Macrology
 ** Code ≡ data
@@ -308,7 +342,7 @@
 
 ** Python: bit more complicated
 
-   Not just type of ~x~:
+   Not just type of ~x~, but the value of ~x.m~
 
    * Override ~x.m~ on the instance
    * ~__getattr(ibute)__~ hacks
