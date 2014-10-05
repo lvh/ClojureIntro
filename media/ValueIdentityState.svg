@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="23cm" height="10cm" viewBox="257 -653 457 184" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" x1="260" y1="-480" x2="698.028" y2="-480"/>
+    <polygon style="fill: #000000" points="705.528,-480 695.528,-475 698.028,-480 695.528,-485 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 4; stroke: #000000" points="705.528,-480 695.528,-475 698.028,-480 695.528,-485 "/>
+  </g>
+  <g>
+    <rect style="fill: #94c5ff" x="260" y="-580" width="450" height="80"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2.35099e-37; stroke: #94c5ff" x="260" y="-580" width="450" height="80"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="300" cy="-540" rx="30" ry="30"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="300" cy="-540" rx="30" ry="30"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="480" cy="-540" rx="30" ry="30"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="480" cy="-540" rx="30" ry="30"/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="670" cy="-540" rx="30" ry="30"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="670" cy="-540" rx="30" ry="30"/>
+  </g>
+  <g>
+    <polygon style="fill: #ffc760" points="360,-635 395,-635 395,-650 430,-620 395,-590 395,-605 360,-605 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="360,-635 395,-635 395,-650 430,-620 395,-590 395,-605 360,-605 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="360,-635 395,-635 395,-650 430,-620 395,-590 395,-605 360,-605 "/>
+  </g>
+  <g>
+    <polygon style="fill: #95ff96" points="540,-635 575,-635 575,-650 610,-620 575,-590 575,-605 540,-605 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="540,-635 575,-635 575,-650 610,-620 575,-590 575,-605 540,-605 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="540,-635 575,-635 575,-650 610,-620 575,-590 575,-605 540,-605 "/>
+  </g>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 330.776 -540 C 360.776,-540 333.729,-620 359.012,-620"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 430 -620 C 446.6,-620 432.422,-540 449.022,-540"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 510 -540 C 535.283,-540 513.728,-620 539.011,-620"/>
+  <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 609.994 -620 C 641.151,-620 607.862,-540 639.019,-540"/>
+  <line style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x1="260" y1="-490" x2="260" y2="-470"/>
+</svg>

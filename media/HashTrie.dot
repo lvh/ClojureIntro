@@ -1,0 +1,47 @@
+digraph {
+        graph [bgcolor="transparent"];
+	node [style=filled fillcolor="#FFFFFF" shape=circle label=""]
+
+        subgraph {
+                rank=same;
+                N01 [fillcolor="#FFC760" shape=square];
+        }
+
+        subgraph {
+                rank=same;
+                N11 [fillcolor="#ADD8E6" shape=square];
+                N12 [fillcolor="#ADD8E6" shape=square];
+                L11
+        }
+
+        subgraph {
+                rank=same;
+                N21 [fillcolor="#95FF76" shape=square];
+                N22 [fillcolor="#95FF76" shape=square];
+                L21
+                L22
+                L23
+        }
+
+        subgraph {
+                rank=same;
+                L31
+                L32
+                L33
+        }
+
+        N01 -> L11;
+        N01 -> N11;
+        N01 -> N12;
+
+        N11 -> L21;
+        N11 -> L22;
+        N11 -> N21;
+
+        N12 -> L23;
+        N12 -> N22;
+
+        N21 -> L31;
+        N21 -> L32;
+        N22 -> L33;
+}

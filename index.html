@@ -50,19 +50,19 @@
 <section id="sec-1-2" >
 
 <h3>KUL</h3>
-<img src="./media/kul.gif" alt="kul.gif" />
+<img src="./media/KUL.gif" alt="KUL.gif" />
 
 </section>
 <section id="sec-1-3" >
 
 <h3>Rackspace</h3>
-<img src="./media/rackspace.svg" alt="rackspace.svg" style="width:90%" />
+<img src="./media/Rackspace.svg" alt="Rackspace.svg" style="width:90%" />
 
 </section>
 <section id="sec-1-4" >
 
 <h3>Python</h3>
-<img src="./media/python.svg" alt="python.svg" style="border:none" />
+<img src="./media/Python.svg" alt="Python.svg" style="border:none" />
 
 <aside class="notes">
 <p>
@@ -75,18 +75,33 @@ Staff member of PyCon US
 <section id="sec-1-5" >
 
 <h3>More importantly: Clojure!</h3>
-<img src="./media/clojure.png" alt="clojure.png" style="border:none" />
+<img src="./media/Clojure.png" alt="Clojure.png" style="border:none" />
 
 </section>
 <section id="sec-1-6" >
 
 <h3>Who are <i>you</i>?</h3>
-<p>
-Experience with FP? Lisps? Clojure?
-</p>
+<ul class="org-ul">
+<li>Functional programming?
+<ul class="org-ul">
+<li>HOF? <code>map</code>, <code>filter</code>, <code>reduce</code>?
+</li>
+</ul>
+</li>
+<li>Lisps?
+</li>
+<li>Clojure?
+</li>
+</ul>
+</section>
 
 </section>
-<section id="sec-1-7" >
+<section>
+<section id="sec-2" >
+
+<h2>Hello, Clojure!</h2>
+</section>
+<section id="sec-2-1" >
 
 <h3>What&rsquo;s Clojure?</h3>
 <p>
@@ -100,7 +115,23 @@ Official JS target, semi-mature CLR target, various experimental targets
 </aside>
 
 </section>
-<section id="sec-1-8" >
+<section id="sec-2-2" >
+
+<h3>Homoiconic syntax</h3>
+<p>
+<code>(f a b c)</code>
+</p>
+
+<p>
+just a different spelling for:
+</p>
+
+<p>
+<code>f(a, b, c)</code>
+</p>
+
+</section>
+<section id="sec-2-3" >
 
 <h3>What&rsquo;s so nice about it?</h3>
 <p>
@@ -119,7 +150,7 @@ Lots of reasons:
 </ul>
 
 </section>
-<section id="sec-1-9" >
+<section id="sec-2-4" >
 
 <h3>Just do it already</h3>
 <p>
@@ -140,7 +171,7 @@ Lots of reasons:
 </ul>
 
 </section>
-<section id="sec-1-10" >
+<section id="sec-2-5" >
 
 <h3>Just do it already</h3>
 <p>
@@ -163,7 +194,7 @@ Software transactional memory
 </ul>
 
 </section>
-<section id="sec-1-11" >
+<section id="sec-2-6" >
 
 <h3>Just do it already</h3>
 <p>
@@ -190,7 +221,7 @@ Asynchronous programming
 </ul>
 
 </section>
-<section id="sec-1-12" >
+<section id="sec-2-7" >
 
 <h3>Just do it already</h3>
 <p>
@@ -205,7 +236,7 @@ Logic programming
 </ul>
 
 </section>
-<section id="sec-1-13" >
+<section id="sec-2-8" >
 
 <h3>Not about Python</h3>
 <p>
@@ -213,7 +244,7 @@ Most other languages are the same or worse
 </p>
 
 </section>
-<section id="sec-1-14" >
+<section id="sec-2-9" >
 
 <h3>Ball of mud</h3>
 <p>
@@ -235,11 +266,11 @@ But hopefully I&rsquo;ve piqued your interest
 
 </section>
 <section>
-<section id="sec-2" >
+<section id="sec-3" >
 
 <h2>Big ideas</h2>
 </section>
-<section id="sec-2-1" >
+<section id="sec-3-1" >
 
 <h3>Immutability by default</h3>
 <ul class="org-ul">
@@ -252,7 +283,7 @@ But hopefully I&rsquo;ve piqued your interest
 </ul>
 
 </section>
-<section id="sec-2-2" >
+<section id="sec-3-2" >
 
 <h3>Functional programming</h3>
 <p>
@@ -260,16 +291,16 @@ But hopefully I&rsquo;ve piqued your interest
 </p>
 
 </section>
-<section id="sec-2-3" >
+<section id="sec-3-3" >
 
 <h3>Java interoperability</h3>
 
 </section>
-<section id="sec-2-4" >
+<section id="sec-3-4" >
 
 <h3>Decomplection</h3>
 </section>
-<section id="sec-2-4-1" >
+<section id="sec-3-4-1" >
 
 <h4>Complex</h4>
 <ul class="org-ul">
@@ -280,7 +311,7 @@ But hopefully I&rsquo;ve piqued your interest
 </ul>
 
 </section>
-<section id="sec-2-4-2" >
+<section id="sec-3-4-2" >
 
 <h4>Simple</h4>
 <ul class="org-ul">
@@ -293,11 +324,11 @@ But hopefully I&rsquo;ve piqued your interest
 
 </section>
 <section>
-<section id="sec-3" >
+<section id="sec-4" >
 
 <h2>The value of values</h2>
 </section>
-<section id="sec-3-1" >
+<section id="sec-4-1" >
 
 <h3>Values <i>are</i> immutable!</h3>
 <aside class="notes">
@@ -307,7 +338,7 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </aside>
 
 </section>
-<section id="sec-3-2" >
+<section id="sec-4-2" >
 
 <h3>&ldquo;Can&rsquo;t cross the same river twice&rdquo;</h3>
 <p>
@@ -315,7 +346,7 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </p>
 
 </section>
-<section id="sec-3-3" >
+<section id="sec-4-3" >
 
 <h3>&ldquo;Single&rdquo; values</h3>
 <ul class="org-ul">
@@ -328,7 +359,59 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </ul>
 
 </section>
-<section id="sec-3-4" >
+<section id="sec-4-4" >
+
+<h3>We&rsquo;ve made a terrible mistake!</h3>
+<p>
+12 Jan 1991, 18 Mar 2002
+</p>
+
+<p>
+How many dates?
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">Two!
+</li>
+<li class="fragment roll-in">In Java?
+<ul class="org-ul">
+<li>Take a <code>Date</code>, change day, month, year
+</li>
+<li>Same <code>Date</code>, different date!
+</li>
+<li>Why do we accept this?
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-4-5" >
+
+<h3>Maybe I&rsquo;m overreacting</h3>
+<ul class="org-ul">
+<li class="fragment roll-in">Most people agree <code>Date</code> was a mistake
+<ul class="org-ul">
+<li>Bloch has apologized for it profusely
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Most people agree immutable types are good
+<ul class="org-ul">
+<li>Numerics, strings&#x2026;
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">&#x2026; but mutability is still the default!
+<ul class="org-ul">
+<li><code>someObject.setWhatever</code>
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-4-6" >
 
 <h3>&ldquo;Compound&rdquo; values</h3>
 <p>
@@ -351,7 +434,65 @@ For some reason we don&rsquo;t accept this for compound values
 </aside>
 
 </section>
-<section id="sec-3-5" >
+<section id="sec-4-7" >
+
+<h3>We have made a terrible mistake!</h3>
+<p>
+{3, 5}, {3, 5, 7}
+</p>
+
+<p>
+How many sets?
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">Two!
+</li>
+<li class="fragment roll-in">In Java? (and Python, and&#x2026;)
+<ul class="org-ul">
+<li>Take a <code>HashSet</code>, add/remove some elements
+</li>
+<li>Same <code>Set</code>, different set!
+</li>
+<li>Why do we accept this?
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-4-8" >
+
+<h3>Why are we here?</h3>
+<p>
+Imperative programming has no concept of <i>time</i>
+</p>
+
+</section>
+<section id="sec-4-9" >
+
+<h3>Value, identity, state</h3>
+<img src="./media/ValueIdentityState.svg" alt="ValueIdentityState.svg" />
+
+</section>
+<section id="sec-4-10" >
+
+<h3>Recap</h3>
+<ul class="org-ul">
+<li>Things don&rsquo;t change in place
+</li>
+<li>The future is a function of the past
+<ul class="org-ul">
+<li>The future does not <i>change</i> the past
+</li>
+</ul>
+</li>
+<li>Concurrency makes everything worse
+</li>
+</ul>
+
+</section>
+<section id="sec-4-11" >
 
 <h3>Persistent data structures</h3>
 <p>
@@ -359,7 +500,7 @@ TODO: talk about persistent data structures
 </p>
 
 </section>
-<section id="sec-3-6" >
+<section id="sec-4-12" >
 
 <h3>Performance?</h3>
 <ul class="org-ul">
@@ -368,6 +509,8 @@ TODO: talk about persistent data structures
 <li>JVM is an impressive piece of engineering
 </li>
 </ul>
+</li>
+<li>Modern persistent data structures are quite efficient
 </li>
 <li>There&rsquo;s always options:
 <ul class="org-ul">
@@ -378,15 +521,48 @@ TODO: talk about persistent data structures
 </ul>
 </li>
 </ul>
+
+</section>
+<section id="sec-4-13" >
+
+<h3>How does it actually work?</h3>
+<ul class="org-ul">
+<li>Bit-partitioned hash tries
+</li>
+<li><code>(hash x)</code> -&gt; 32 bit hash value
+</li>
+</ul>
+
+</section>
+<section id="sec-4-14" >
+
+<h3>Bit partitioning</h3>
+<img src="./media/BitPartition.svg" alt="BitPartition.svg" />
+
+</section>
+<section id="sec-4-15" >
+
+<h3>Hash trie</h3>
+<img src="./media/BitPartitionPart.svg" alt="BitPartitionPart.svg" style="width:40%;display:block;margin-left:auto;margin-right:auto" />
+
+<img src="./media/HashTrie.svg" alt="HashTrie.svg" style="width:50%" />
+
+</section>
+<section id="sec-4-16" >
+
+<h3>Updating a hash trie</h3>
+<p>
+TODO: show updated version
+</p>
 </section>
 
 </section>
 <section>
-<section id="sec-4" >
+<section id="sec-5" >
 
 <h2>Transducers</h2>
 </section>
-<section id="sec-4-1" >
+<section id="sec-5-1" >
 
 <h3>Fairly new feature</h3>
 <p>
@@ -394,7 +570,7 @@ TODO: talk about persistent data structures
 </p>
 
 </section>
-<section id="sec-4-2" >
+<section id="sec-5-2" >
 
 <h3>Only bad part is the name</h3>
 <ul class="org-ul">
@@ -415,7 +591,7 @@ TODO: talk about persistent data structures
 </ul>
 
 </section>
-<section id="sec-4-3" >
+<section id="sec-5-3" >
 
 <h3>Monads</h3>
 <p>
@@ -429,7 +605,7 @@ My spell checker is not convinced these are words
 </aside>
 
 </section>
-<section id="sec-4-4" >
+<section id="sec-5-4" >
 
 <h3><code>map</code></h3>
 <p>
@@ -437,7 +613,7 @@ My spell checker is not convinced these are words
 </p>
 
 <p>
-<code>[(f (coll 0)) (f (coll 1)) ...]</code>
+(<code>(f x)</code> for all <code>x</code> in <code>coll</code>)
 </p>
 
 <p>
@@ -445,7 +621,23 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-4-5" >
+<section id="sec-5-5" >
+
+<h3><code>filter</code></h3>
+<p>
+<code>(filter f coll)</code>
+</p>
+
+<p>
+(all of the <code>x</code> in <code>coll</code>, if <code>(f x)</code>)
+</p>
+
+<p>
+<code>(filter even? [1 2 3]) ;; =&gt; (2)</code>
+</p>
+
+</section>
+<section id="sec-5-6" >
 
 <h3><code>reduce</code></h3>
 <p>
@@ -453,7 +645,26 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-4-6" >
+<section id="sec-5-7" >
+
+<h3>Problem!</h3>
+<p>
+We kept implementing <code>map</code>, <code>reduce</code>, etc.
+</p>
+
+<ul class="org-ul">
+<li>Collections (the ones we just saw)
+</li>
+<li>Streams
+</li>
+<li>Observables
+</li>
+<li>Channels (core.async)
+</li>
+</ul>
+
+</section>
+<section id="sec-5-8" >
 
 <h3>Big idea</h3>
 <ul class="org-ul">
@@ -461,10 +672,14 @@ My spell checker is not convinced these are words
 </li>
 <li>Specifically, remove collections
 </li>
+<li>Turn them into <i>process transformations</i>
+</li>
+<li>Very &ldquo;functional&rdquo;
+</li>
 </ul>
 
 </section>
-<section id="sec-4-7" >
+<section id="sec-5-9" >
 
 <h3>Processes</h3>
 <ul class="org-ul">
@@ -479,7 +694,7 @@ My spell checker is not convinced these are words
 </ul>
 
 </section>
-<section id="sec-4-8" >
+<section id="sec-5-10" >
 
 <h3>Example with map</h3>
 <p>
@@ -492,7 +707,7 @@ My spell checker is not convinced these are words
 </ul>
 
 </section>
-<section id="sec-4-9" >
+<section id="sec-5-11" >
 
 <h3>Big example</h3>
 <p>
@@ -502,11 +717,11 @@ My spell checker is not convinced these are words
 
 </section>
 <section>
-<section id="sec-5" >
+<section id="sec-6" >
 
 <h2>Concurrency</h2>
 </section>
-<section id="sec-5-1" >
+<section id="sec-6-1" >
 
 <h3>STM</h3>
 <ul class="org-ul">
@@ -526,12 +741,12 @@ Since Clojure 1.0
 </aside>
 
 </section>
-<section id="sec-5-2" >
+<section id="sec-6-2" >
 
 <h3>STM example</h3>
 
 </section>
-<section id="sec-5-3" >
+<section id="sec-6-3" >
 
 <h3><code>@Raw</code></h3>
 <aside class="notes">
@@ -543,13 +758,13 @@ But @Raw makes me sad
 </aside>
 
 </section>
-<section id="sec-5-4" >
+<section id="sec-6-4" >
 
 <h3>Need a synchronization primitive?</h3>
 <img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-5-5" >
+<section id="sec-6-5" >
 
 <h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
@@ -584,7 +799,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-5-6" >
+<section id="sec-6-6" >
 
 <h3>Failure modes</h3>
 <ul class="org-ul">
@@ -597,7 +812,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-5-7" >
+<section id="sec-6-7" >
 
 <h3>Comparison</h3>
 <p>
@@ -615,11 +830,11 @@ GC and lifetime analysis
 
 </section>
 <section>
-<section id="sec-6" >
+<section id="sec-7" >
 
 <h2>Macrology</h2>
 </section>
-<section id="sec-6-1" >
+<section id="sec-7-1" >
 
 <h3>Code ≡ data</h3>
 <p>
@@ -635,7 +850,7 @@ Many basic &ldquo;language features&rdquo; are macros:
 </p>
 
 </section>
-<section id="sec-6-2" >
+<section id="sec-7-2" >
 
 <h3>Domain specific languages</h3>
 <ul class="org-ul">
@@ -646,20 +861,20 @@ Many basic &ldquo;language features&rdquo; are macros:
 
 </section>
 <section>
-<section id="sec-7" >
+<section id="sec-8" >
 
 <h2>Polymorphism</h2>
 </section>
-<section id="sec-7-1" >
+<section id="sec-8-1" >
 
 <h3>Protocols</h3>
 </section>
-<section id="sec-7-2" >
+<section id="sec-8-2" >
 
 <h3>Multimethods</h3>
 
 </section>
-<section id="sec-7-3" >
+<section id="sec-8-3" >
 
 <h3><code>x.m(a, b, c)</code></h3>
 <p>
@@ -667,7 +882,7 @@ Which <code>m</code>?
 </p>
 
 </section>
-<section id="sec-7-4" >
+<section id="sec-8-4" >
 
 <h3><code>m</code> depends on type of <code>x</code></h3>
 <ul class="org-ul">
@@ -684,7 +899,7 @@ C# 4.0 apparently supports multimethods
 </aside>
 
 </section>
-<section id="sec-7-5" >
+<section id="sec-8-5" >
 
 <h3>Python: bit more complicated</h3>
 <p>
@@ -703,7 +918,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 </section>
-<section id="sec-7-6" >
+<section id="sec-8-6" >
 
 <h3>&ldquo;Sending a message&rdquo;</h3>
 <p>
@@ -715,7 +930,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 </section>
-<section id="sec-7-7" >
+<section id="sec-8-7" >
 
 <h3>No interesting differences</h3>
 <ul class="org-ul">
@@ -726,12 +941,12 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </ul>
 
 </section>
-<section id="sec-7-8" >
+<section id="sec-8-8" >
 
 <h3>Single dispatch not always enough</h3>
 
 </section>
-<section id="sec-7-9" >
+<section id="sec-8-9" >
 
 <h3>Multimethods</h3>
 <p>
@@ -741,28 +956,28 @@ Routing logic: <code>f(x)</code>
 
 </section>
 <section>
-<section id="sec-8" >
+<section id="sec-9" >
 
 <h2><code>core.logic</code></h2>
 </section>
-<section id="sec-8-1" >
+<section id="sec-9-1" >
 
 <h3>The Reasoned Schemer</h3>
-<img src="./media/reasonedschemer.jpg" alt="reasonedschemer.jpg" />
+<img src="./media/ReasonedSchemer.jpg" alt="ReasonedSchemer.jpg" />
 </section>
 
 </section>
 <section>
-<section id="sec-9" >
+<section id="sec-10" >
 
 <h2>Conclusion</h2>
 </section>
-<section id="sec-9-1" >
+<section id="sec-10-1" >
 
 <h3>A modern, pragmatic Lisp</h3>
 
 </section>
-<section id="sec-9-2" >
+<section id="sec-10-2" >
 
 <h3>Don&rsquo;t learn Clojure!</h3>
 <p>
@@ -772,27 +987,28 @@ Going back is painful ;-)
 
 </section>
 <section>
-<section id="sec-10" >
+<section id="sec-11" >
 
 <h2>Thank you!</h2>
 </section>
 </section>
 <section>
-<section id="sec-11" >
+<section id="sec-12" >
 
 <h2>Questions?</h2>
 </section>
-<section id="sec-11-1" >
+<section id="sec-12-1" >
 
 <h3>Suggested rants</h3>
+<p>
+Bad type systems
+</p>
+
 <ul class="org-ul">
-<li>Bad type systems
-<ul class="org-ul">
-<li>Scala
+<li>Scala: <code>def map[B, That](f: A =&gt; B)(implicit bf:
+     CanBuildFrom[Repr, B, That]): That</code>
 </li>
-<li>Go
-</li>
-</ul>
+<li>Go: <code>interface{}</code>
 </li>
 </ul>
 </section>

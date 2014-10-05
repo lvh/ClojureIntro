@@ -19,17 +19,17 @@
 
 ** KUL
 
-   [[./media/kul.gif]]
+   [[./media/KUL.gif]]
 
 ** Rackspace
 
    #+ATTR_HTML: :style width:90%
-   [[./media/rackspace.svg]]
+   [[./media/Rackspace.svg]]
 
 ** Python
 
    #+ATTR_HTML: :style border:none
-   [[./media/python.svg]]
+   [[./media/Python.svg]]
 
    #+BEGIN_NOTES
    Fellow of the Python Software Foundation
@@ -39,12 +39,16 @@
 ** More importantly: Clojure!
 
    #+ATTR_HTML: :style border:none
-   [[./media/clojure.png]]
+   [[./media/Clojure.png]]
 
 ** Who are /you/?
 
-   Experience with FP? Lisps? Clojure?
+   * Functional programming?
+     * HOF? ~map~, ~filter~, ~reduce~?
+   * Lisps?
+   * Clojure?
 
+* Hello, Clojure!
 ** What's Clojure?
 
    ~(apply modern-lisp @jvm)~
@@ -52,6 +56,14 @@
    #+BEGIN_NOTES
    Official JS target, semi-mature CLR target, various experimental targets
    #+END_NOTES
+
+** Homoiconic syntax
+
+   ~(f a b c)~
+
+   just a different spelling for:
+
+   ~f(a, b, c)~
 
 ** What's so nice about it?
 
@@ -171,6 +183,29 @@
    * Python: ~int~, ~float~...
    * Counterexample: ~java.util.Date~
 
+** We've made a terrible mistake!
+
+   12 Jan 1991, 18 Mar 2002
+
+   How many dates?
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Two!
+   * In Java?
+     * Take a ~Date~, change day, month, year
+     * Same ~Date~, different date!
+     * Why do we accept this?
+
+** Maybe I'm overreacting
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Most people agree ~Date~ was a mistake
+     * Bloch has apologized for it profusely
+   * Most people agree immutable types are good
+     * Numerics, strings...
+   * ... but mutability is still the default!
+     * ~someObject.setWhatever~
+
 ** "Compound" values
 
    E.g. collections
@@ -184,6 +219,34 @@
    For some reason we don't accept this for compound values
    #+END_NOTES
 
+** We have made a terrible mistake!
+
+   {3, 5}, {3, 5, 7}
+
+   How many sets?
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Two!
+   * In Java? (and Python, and...)
+     * Take a ~HashSet~, add/remove some elements
+     * Same ~Set~, different set!
+     * Why do we accept this?
+
+** Why are we here?
+
+   Imperative programming has no concept of /time/
+
+** Value, identity, state
+
+   [[./media/ValueIdentityState.svg]]
+
+** Recap
+
+   * Things don't change in place
+   * The future is a function of the past
+     * The future does not /change/ the past
+   * Concurrency makes everything worse
+
 ** Persistent data structures
 
    TODO: talk about persistent data structures
@@ -192,9 +255,31 @@
 
    * Typically not an issue
      * JVM is an impressive piece of engineering
+   * Modern persistent data structures are quite efficient
    * There's always options:
      * ~transient~, ~persistent!~
      * import a faster Java alternative
+
+** How does it actually work?
+
+   * Bit-partitioned hash tries
+   * ~(hash x)~ -> 32 bit hash value
+
+** Bit partitioning
+
+   [[./media/BitPartition.svg]]
+
+** Hash trie
+
+   #+ATTR_HTML: :style width:40%;display:block;margin-left:auto;margin-right:auto
+   [[./media/BitPartitionPart.svg]]
+
+   #+ATTR_HTML: :style width:50%
+   [[./media/HashTrie.svg]]
+
+** Updating a hash trie
+
+   TODO: show updated version
 
 * Transducers
 ** Fairly new feature
@@ -222,18 +307,37 @@
 
    ~(map f coll)~
 
-   ~[(f (coll 0)) (f (coll 1)) ...]~
+   (~(f x)~ for all ~x~ in ~coll~)
 
    ~(map inc [1 2 3]) ;; => (2 3 4)~
+
+** ~filter~
+
+   ~(filter f coll)~
+
+   (all of the ~x~ in ~coll~, if ~(f x)~)
+
+   ~(filter even? [1 2 3]) ;; => (2)~
 
 ** ~reduce~
 
    ~(defn sum [coll] (reduce + coll))~
 
+** Problem!
+
+   We kept implementing ~map~, ~reduce~, etc.
+
+   * Collections (the ones we just saw)
+   * Streams
+   * Observables
+   * Channels (core.async)
+
 ** Big idea
 
    * Extract the /essence/ of map, reduce...
    * Specifically, remove collections
+   * Turn them into /process transformations/
+   * Very "functional"
 
 ** Processes
 
@@ -370,7 +474,7 @@
 
 ** The Reasoned Schemer
 
-   [[./media/reasonedschemer.jpg]]
+   [[./media/ReasonedSchemer.jpg]]
 
 * Conclusion
 ** A modern, pragmatic Lisp
@@ -383,6 +487,8 @@
 * Questions?
 ** Suggested rants
 
-   * Bad type systems
-     * Scala
-     * Go
+   Bad type systems
+
+   * Scala: ~def map[B, That](f: A => B)(implicit bf:
+     CanBuildFrom[Repr, B, That]): That~
+   * Go: ~interface{}~
