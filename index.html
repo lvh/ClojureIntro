@@ -555,19 +555,36 @@ Imperative programming has no concept of <i>time</i>
 </section>
 <section id="sec-4-14" >
 
+<h3>New possibilities</h3>
+<p>
+Old versions are cheap!
+</p>
+
+<ul class="org-ul">
+<li>Easy-to-implement undo
+</li>
+<li>Time travel
+</li>
+<li>Speculative evaluation
+</li>
+</ul>
+
+</section>
+<section id="sec-4-15" >
+
 <h3>How does it actually work?</h3>
 <p>
 Bit-partitioned hash tries
 </p>
 
 </section>
-<section id="sec-4-15" >
+<section id="sec-4-16" >
 
 <h3>Bit partitioning</h3>
 <img src="./media/BitPartition.svg" alt="BitPartition.svg" />
 
 </section>
-<section id="sec-4-16" >
+<section id="sec-4-17" >
 
 <h3>Hash trie</h3>
 <img src="./media/BitPartitionPart.svg" alt="BitPartitionPart.svg" style="width:40%;display:block;margin-left:auto;margin-right:auto" />
@@ -575,7 +592,13 @@ Bit-partitioned hash tries
 <img src="./media/HashTrie.svg" alt="HashTrie.svg" style="width:50%" />
 
 </section>
-<section id="sec-4-17" >
+<section id="sec-4-18" >
+
+<h3>Path copying</h3>
+<img src="./media/HashTrieWithAssoc.svg" alt="HashTrieWithAssoc.svg" style="width:50%" />
+
+</section>
+<section id="sec-4-19" >
 
 <h3>How deep does it go?</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -620,13 +643,7 @@ Bit-partitioned hash tries
 </table>
 
 </section>
-<section id="sec-4-18" >
-
-<h3>Updating a hash trie</h3>
-<img src="./media/HashTrieWithAssoc.svg" alt="HashTrieWithAssoc.svg" style="width:50%" />
-
-</section>
-<section id="sec-4-19" >
+<section id="sec-4-20" >
 
 <h3>Garbage-efficient</h3>
 <img src="./media/HashTrieGarbage.svg" alt="HashTrieGarbage.svg" style="width:50%" />

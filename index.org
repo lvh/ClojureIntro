@@ -278,6 +278,14 @@
    * E.g. pointer equality checks
    * Example: Om beating React.js
 
+** New possibilities
+
+   Old versions are cheap!
+
+   * Easy-to-implement undo
+   * Time travel
+   * Speculative evaluation
+
 ** How does it actually work?
 
    Bit-partitioned hash tries
