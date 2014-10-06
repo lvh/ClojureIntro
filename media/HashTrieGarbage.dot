@@ -1,0 +1,74 @@
+digraph {
+        graph [bgcolor="transparent"];
+	node [style=filled fillcolor="#FFFFFF" shape=circle label=""]
+
+        subgraph {
+                rank=same;
+                N01 [fillcolor="#FFC760" shape=square color=red penwidth=5]
+                N01b [fillcolor="#FFC760" shape=square penwidth=3]
+        }
+
+        subgraph {
+                rank=same;
+                N11 [fillcolor="#ADD8E6" shape=square]
+                N12 [fillcolor="#ADD8E6" shape=square color=red penwidth=5]
+                N12b [fillcolor="#ADD8E6" shape=square penwidth=3]
+                L11
+        }
+
+        subgraph {
+                rank=same;
+                N21 [fillcolor="#95FF76" shape=square];
+                N22 [fillcolor="#95FF76" shape=square color=red penwidth=5]
+                N22b [fillcolor="#95FF76" shape=square penwidth=3];
+                L21
+                L22
+                L23
+        }
+
+        subgraph {
+                rank=same;
+                L31
+                L32
+                L33
+                L34b
+        }
+
+        // Old tree
+
+        edge [style=dashed arrowhead=empty]
+
+        // To be deleted
+        edge [color=red penwidth=3]
+        N01 -> L11;
+        N01 -> N11;
+        N01 -> N12;
+
+        N12 -> L23;
+        N12 -> N22;
+
+        N22 -> L33;
+
+        // to be kept
+        edge [color=black penwidth=1]
+        N11 -> L21;
+        N11 -> L22;
+        N11 -> N21;
+
+        N21 -> L31;
+        N21 -> L32;
+
+        // New tree
+
+        edge [color=black style=solid arrowhead=normal]
+
+        N01b -> L11;
+        N01b -> N11;
+        N01b -> N12b;
+
+        N12b -> L23;
+        N12b -> N22b;
+
+        N22b -> L33;
+        N22b -> L34b;
+}

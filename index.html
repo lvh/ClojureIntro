@@ -133,6 +133,20 @@ just a different spelling for:
 </section>
 <section id="sec-2-3" >
 
+<h3>A lisp? Really?</h3>
+<img src="./media/JohnMcCarthy.jpg" alt="JohnMcCarthy.jpg" style="width:100%" />
+
+<aside class="notes">
+<p>
+Originally written for AI
+John McCarthy 1957
+Interpreters, high-level metaprogramming, garbage collection, dynamic programming, functional programming, programming with recursive functions&#x2026;
+</p>
+</aside>
+
+</section>
+<section id="sec-2-4" >
+
 <h3>What&rsquo;s so nice about it?</h3>
 <p>
 Lots of reasons:
@@ -150,7 +164,7 @@ Lots of reasons:
 </ul>
 
 </section>
-<section id="sec-2-4" >
+<section id="sec-2-5" >
 
 <h3>Just do it already</h3>
 <p>
@@ -171,7 +185,7 @@ Lots of reasons:
 </ul>
 
 </section>
-<section id="sec-2-5" >
+<section id="sec-2-6" >
 
 <h3>Just do it already</h3>
 <p>
@@ -194,7 +208,7 @@ Software transactional memory
 </ul>
 
 </section>
-<section id="sec-2-6" >
+<section id="sec-2-7" >
 
 <h3>Just do it already</h3>
 <p>
@@ -221,7 +235,7 @@ Asynchronous programming
 </ul>
 
 </section>
-<section id="sec-2-7" >
+<section id="sec-2-8" >
 
 <h3>Just do it already</h3>
 <p>
@@ -236,7 +250,7 @@ Logic programming
 </ul>
 
 </section>
-<section id="sec-2-8" >
+<section id="sec-2-9" >
 
 <h3>Not about Python</h3>
 <p>
@@ -244,7 +258,7 @@ Most other languages are the same or worse
 </p>
 
 </section>
-<section id="sec-2-9" >
+<section id="sec-2-10" >
 
 <h3>Ball of mud</h3>
 <p>
@@ -495,9 +509,14 @@ Imperative programming has no concept of <i>time</i>
 <section id="sec-4-11" >
 
 <h3>Persistent data structures</h3>
-<p>
-TODO: talk about persistent data structures
-</p>
+<ul class="org-ul">
+<li>Not about persisting to a database
+</li>
+<li>Specific way of implementing immutable data structures
+</li>
+<li>Given <code>x</code>, <code>(f x)</code>, will give you a <i>new</i> data structure
+</li>
+</ul>
 
 </section>
 <section id="sec-4-12" >
@@ -525,22 +544,30 @@ TODO: talk about persistent data structures
 </section>
 <section id="sec-4-13" >
 
-<h3>How does it actually work?</h3>
+<h3>Performance is often <i>better</i></h3>
 <ul class="org-ul">
-<li>Bit-partitioned hash tries
+<li>E.g. pointer equality checks
 </li>
-<li><code>(hash x)</code> -&gt; 32 bit hash value
+<li>Example: Om beating React.js
 </li>
 </ul>
 
 </section>
 <section id="sec-4-14" >
 
+<h3>How does it actually work?</h3>
+<p>
+Bit-partitioned hash tries
+</p>
+
+</section>
+<section id="sec-4-15" >
+
 <h3>Bit partitioning</h3>
 <img src="./media/BitPartition.svg" alt="BitPartition.svg" />
 
 </section>
-<section id="sec-4-15" >
+<section id="sec-4-16" >
 
 <h3>Hash trie</h3>
 <img src="./media/BitPartitionPart.svg" alt="BitPartitionPart.svg" style="width:40%;display:block;margin-left:auto;margin-right:auto" />
@@ -548,12 +575,61 @@ TODO: talk about persistent data structures
 <img src="./media/HashTrie.svg" alt="HashTrie.svg" style="width:50%" />
 
 </section>
-<section id="sec-4-16" >
+<section id="sec-4-17" >
+
+<h3>How deep does it go?</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="right" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="right">Depth</td>
+<td class="left">Nodes</td>
+</tr>
+
+<tr>
+<td class="right">0</td>
+<td class="left">32</td>
+</tr>
+
+<tr>
+<td class="right">1</td>
+<td class="left">1024</td>
+</tr>
+
+<tr>
+<td class="right">2</td>
+<td class="left">~32k</td>
+</tr>
+
+<tr>
+<td class="right">3</td>
+<td class="left">~1M</td>
+</tr>
+
+<tr>
+<td class="right">4</td>
+<td class="left">~32M</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="sec-4-18" >
 
 <h3>Updating a hash trie</h3>
-<p>
-TODO: show updated version
-</p>
+<img src="./media/HashTrieWithAssoc.svg" alt="HashTrieWithAssoc.svg" style="width:50%" />
+
+</section>
+<section id="sec-4-19" >
+
+<h3>Garbage-efficient</h3>
+<img src="./media/HashTrieGarbage.svg" alt="HashTrieGarbage.svg" style="width:50%" />
 </section>
 
 </section>
@@ -943,7 +1019,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </section>
 <section id="sec-8-8" >
 
-<h3>Single dispatch not always enough</h3>
+<h3>We can do better!</h3>
 
 </section>
 <section id="sec-8-9" >
@@ -951,6 +1027,14 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 <h3>Multimethods</h3>
 <p>
 Routing logic: <code>f(x)</code>
+</p>
+
+</section>
+<section id="sec-8-10" >
+
+<h3>Example</h3>
+<p>
+TODO: show examples in icecap
 </p>
 </section>
 

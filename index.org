@@ -65,6 +65,17 @@
 
    ~f(a, b, c)~
 
+** A lisp? Really?
+
+   #+ATTR_HTML: :style width:100%
+   [[./media/JohnMcCarthy.jpg]]
+
+   #+BEGIN_NOTES
+   Originally written for AI
+   John McCarthy 1957
+   Interpreters, high-level metaprogramming, garbage collection, dynamic programming, functional programming, programming with recursive functions...
+   #+END_NOTES
+
 ** What's so nice about it?
 
    Lots of reasons:
@@ -249,7 +260,9 @@
 
 ** Persistent data structures
 
-   TODO: talk about persistent data structures
+   * Not about persisting to a database
+   * Specific way of implementing immutable data structures
+   * Given ~x~, ~(f x)~, will give you a /new/ data structure
 
 ** Performance?
 
@@ -260,10 +273,14 @@
      * ~transient~, ~persistent!~
      * import a faster Java alternative
 
+** Performance is often /better/
+
+   * E.g. pointer equality checks
+   * Example: Om beating React.js
+
 ** How does it actually work?
 
-   * Bit-partitioned hash tries
-   * ~(hash x)~ -> 32 bit hash value
+   Bit-partitioned hash tries
 
 ** Bit partitioning
 
@@ -277,9 +294,24 @@
    #+ATTR_HTML: :style width:50%
    [[./media/HashTrie.svg]]
 
-** Updating a hash trie
+** Path copying
 
-   TODO: show updated version
+   #+ATTR_HTML: :style width:50%
+   [[./media/HashTrieWithAssoc.svg]]
+
+** How deep does it go?
+
+   | Depth | Nodes |
+   |     0 | 32    |
+   |     1 | 1024  |
+   |     2 | ~32k  |
+   |     3 | ~1M   |
+   |     4 | ~32M  |
+
+** Garbage-efficient
+
+   #+ATTR_HTML: :style width:50%
+   [[./media/HashTrieGarbage.svg]]
 
 * Transducers
 ** Fairly new feature
@@ -464,11 +496,15 @@
    * Logic is fixed
    * Always up to ~x~
 
-** Single dispatch not always enough
+** We can do better!
 
 ** Multimethods
 
    Routing logic: ~f(x)~
+
+** Example
+
+   TODO: show examples in icecap
 
 * ~core.logic~
 
