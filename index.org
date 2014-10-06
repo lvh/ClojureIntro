@@ -393,7 +393,11 @@
 
    ~(map f)~
 
-   * Compare ~(map f coll)~
+     vs.
+
+   ~(map f coll)~
+
+   ~(partial map f)~
 
 ** Big example
 
