@@ -354,14 +354,6 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </section>
 <section id="sec-4-2" >
 
-<h3>&ldquo;Can&rsquo;t cross the same river twice&rdquo;</h3>
-<p>
-(Heraclitus, ~500 BC)
-</p>
-
-</section>
-<section id="sec-4-3" >
-
 <h3>&ldquo;Single&rdquo; values</h3>
 <ul class="org-ul">
 <li class="fragment roll-in">Java: <code>BigInt</code>, <code>BigDecimal</code>&#x2026;
@@ -373,7 +365,7 @@ Not just in Clojure; <b>semantically</b>, mutable values are lies
 </ul>
 
 </section>
-<section id="sec-4-4" >
+<section id="sec-4-3" >
 
 <h3>We&rsquo;ve made a terrible mistake!</h3>
 <p>
@@ -400,7 +392,7 @@ How many dates?
 </ul>
 
 </section>
-<section id="sec-4-5" >
+<section id="sec-4-4" >
 
 <h3>Maybe I&rsquo;m overreacting</h3>
 <ul class="org-ul">
@@ -425,7 +417,7 @@ How many dates?
 </ul>
 
 </section>
-<section id="sec-4-6" >
+<section id="sec-4-5" >
 
 <h3>&ldquo;Compound&rdquo; values</h3>
 <p>
@@ -448,7 +440,7 @@ For some reason we don&rsquo;t accept this for compound values
 </aside>
 
 </section>
-<section id="sec-4-7" >
+<section id="sec-4-6" >
 
 <h3>We have made a terrible mistake!</h3>
 <p>
@@ -475,11 +467,26 @@ How many sets?
 </ul>
 
 </section>
-<section id="sec-4-8" >
+<section id="sec-4-7" >
 
 <h3>Why are we here?</h3>
 <p>
-Imperative programming has no concept of <i>time</i>
+Imperative programming!
+</p>
+
+<ul class="org-ul">
+<li>No concept of <i>time</i>
+</li>
+<li>Everything happens &ldquo;right now&rdquo;
+</li>
+</ul>
+
+</section>
+<section id="sec-4-8" >
+
+<h3>&ldquo;Can&rsquo;t cross the same river twice&rdquo;</h3>
+<p>
+(Heraclitus, ~500 BC)
 </p>
 
 </section>
@@ -547,8 +554,16 @@ Imperative programming has no concept of <i>time</i>
 <h3>Performance is often <i>better</i></h3>
 <ul class="org-ul">
 <li>E.g. pointer equality checks
-</li>
+<ul class="org-ul">
 <li>Example: Om beating React.js
+</li>
+</ul>
+</li>
+<li>Free sharing
+<ul class="org-ul">
+<li>No defensive copying, cloning, locks&#x2026;
+</li>
+</ul>
 </li>
 </ul>
 
@@ -556,16 +571,14 @@ Imperative programming has no concept of <i>time</i>
 <section id="sec-4-14" >
 
 <h3>New possibilities</h3>
-<p>
-Old versions are cheap!
-</p>
-
 <ul class="org-ul">
-<li>Easy-to-implement undo
-</li>
-<li>Time travel
+<li>Old versions are cheap!
+<ul class="org-ul">
+<li>Easy-to-implement undo, &ldquo;time travel&rdquo;
 </li>
 <li>Speculative evaluation
+</li>
+</ul>
 </li>
 </ul>
 

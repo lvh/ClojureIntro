@@ -183,10 +183,6 @@
    Not just in Clojure; *semantically*, mutable values are lies
    #+END_NOTES
 
-** "Can't cross the same river twice"
-
-   (Heraclitus, ~500 BC)
-
 ** "Single" values
 
    #+ATTR_REVEAL: :frag roll-in
@@ -245,7 +241,14 @@
 
 ** Why are we here?
 
-   Imperative programming has no concept of /time/
+   Imperative programming!
+
+   * No concept of /time/
+   * Everything happens "right now"
+
+** "Can't cross the same river twice"
+
+   (Heraclitus, ~500 BC)
 
 ** Value, identity, state
 
@@ -276,15 +279,15 @@
 ** Performance is often /better/
 
    * E.g. pointer equality checks
-   * Example: Om beating React.js
+     * Example: Om beating React.js
+   * Free sharing
+     * No defensive copying, cloning, locks...
 
 ** New possibilities
 
-   Old versions are cheap!
-
-   * Easy-to-implement undo
-   * Time travel
-   * Speculative evaluation
+   * Old versions are cheap!
+     * Easy-to-implement undo, "time travel"
+     * Speculative evaluation
 
 ** How does it actually work?
 
