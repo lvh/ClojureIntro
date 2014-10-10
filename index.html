@@ -157,6 +157,8 @@ Lots of reasons:
 </li>
 <li class="fragment roll-in">JVM, but also JS back-ends
 </li>
+<li class="fragment roll-in">Generally applicable
+</li>
 <li class="fragment roll-in">&ldquo;Just <i>do</i> it already&rdquo; (my favorite)
 </li>
 <li class="fragment roll-in">&#x2026;
@@ -276,7 +278,6 @@ But hopefully I&rsquo;ve piqued your interest
 </p>
 </aside>
 </section>
-
 
 </section>
 <section>
@@ -666,175 +667,9 @@ Bit-partitioned hash tries
 <section>
 <section id="sec-5" >
 
-<h2>Transducers</h2>
+<h2>Reference types &amp; concurrency</h2>
 </section>
 <section id="sec-5-1" >
-
-<h3>Fairly new feature</h3>
-<p>
-(1.7, beta)
-</p>
-
-</section>
-<section id="sec-5-2" >
-
-<h3>Only bad part is the name</h3>
-<ul class="org-ul">
-<li class="fragment roll-in">What&rsquo;s a transducer?
-<ul class="org-ul">
-<li>It&rsquo;s a reducing function transformer!
-</li>
-</ul>
-</li>
-<li class="fragment roll-in">What&rsquo;s a reducing function?
-<ul class="org-ul">
-<li>It&rsquo;s a function you&rsquo;d pass to reduce!
-</li>
-</ul>
-</li>
-<li class="fragment roll-in">Gee, thanks!
-</li>
-</ul>
-
-</section>
-<section id="sec-5-3" >
-
-<h3>Monads</h3>
-<p>
-Just monoids in the category of endofunctors!
-</p>
-
-<aside class="notes">
-<p>
-My spell checker is not convinced these are words
-</p>
-</aside>
-
-</section>
-<section id="sec-5-4" >
-
-<h3><code>map</code></h3>
-<p>
-<code>(map f coll)</code>
-</p>
-
-<p>
-(<code>(f x)</code> for all <code>x</code> in <code>coll</code>)
-</p>
-
-<p>
-<code>(map inc [1 2 3]) ;; =&gt; (2 3 4)</code>
-</p>
-
-</section>
-<section id="sec-5-5" >
-
-<h3><code>filter</code></h3>
-<p>
-<code>(filter f coll)</code>
-</p>
-
-<p>
-(all of the <code>x</code> in <code>coll</code>, if <code>(f x)</code>)
-</p>
-
-<p>
-<code>(filter even? [1 2 3]) ;; =&gt; (2)</code>
-</p>
-
-</section>
-<section id="sec-5-6" >
-
-<h3><code>reduce</code></h3>
-<p>
-<code>(defn sum [coll] (reduce + coll))</code>
-</p>
-
-</section>
-<section id="sec-5-7" >
-
-<h3>Problem!</h3>
-<p>
-We kept implementing <code>map</code>, <code>reduce</code>, etc.
-</p>
-
-<ul class="org-ul">
-<li>Collections (the ones we just saw)
-</li>
-<li>Streams
-</li>
-<li>Observables
-</li>
-<li>Channels (core.async)
-</li>
-</ul>
-
-</section>
-<section id="sec-5-8" >
-
-<h3>Big idea</h3>
-<ul class="org-ul">
-<li>Extract the <i>essence</i> of map, reduce&#x2026;
-</li>
-<li>Specifically, remove collections
-</li>
-<li>Turn them into <i>process transformations</i>
-</li>
-<li>Very &ldquo;functional&rdquo;
-</li>
-</ul>
-
-</section>
-<section id="sec-5-9" >
-
-<h3>Processes</h3>
-<ul class="org-ul">
-<li>Succession of steps
-</li>
-<li>Each step takes an input
-</li>
-<li>Example: building a collection
-</li>
-<li>Generally: seeded left reduce
-</li>
-</ul>
-
-</section>
-<section id="sec-5-10" >
-
-<h3>Example with map</h3>
-<p>
-<code>(map f)</code>
-</p>
-
-<p>
-vs.
-</p>
-
-<p>
-<code>(map f coll)</code>
-</p>
-
-<p>
-<code>(partial map f)</code>
-</p>
-
-</section>
-<section id="sec-5-11" >
-
-<h3>Big example</h3>
-<p>
-<del>Stole</del> Borrowed from Rich Hickey at Strange Loop
-</p>
-</section>
-
-</section>
-<section>
-<section id="sec-6" >
-
-<h2>Concurrency</h2>
-</section>
-<section id="sec-6-1" >
 
 <h3>STM</h3>
 <ul class="org-ul">
@@ -854,12 +689,12 @@ Since Clojure 1.0
 </aside>
 
 </section>
-<section id="sec-6-2" >
+<section id="sec-5-2" >
 
 <h3>STM example</h3>
 
 </section>
-<section id="sec-6-3" >
+<section id="sec-5-3" >
 
 <h3><code>@Raw</code></h3>
 <aside class="notes">
@@ -871,13 +706,13 @@ But @Raw makes me sad
 </aside>
 
 </section>
-<section id="sec-6-4" >
+<section id="sec-5-4" >
 
 <h3>Need a synchronization primitive?</h3>
 <img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-6-5" >
+<section id="sec-5-5" >
 
 <h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
@@ -912,7 +747,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-6-6" >
+<section id="sec-5-6" >
 
 <h3>Failure modes</h3>
 <ul class="org-ul">
@@ -925,7 +760,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-6-7" >
+<section id="sec-5-7" >
 
 <h3>Comparison</h3>
 <p>
@@ -938,6 +773,176 @@ versus
 
 <p>
 GC and lifetime analysis
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Transducers</h2>
+</section>
+<section id="sec-6-1" >
+
+<h3>Fairly new feature</h3>
+<p>
+(1.7, beta)
+</p>
+
+</section>
+<section id="sec-6-2" >
+
+<h3>Only bad part is the name</h3>
+<ul class="org-ul">
+<li class="fragment roll-in">What&rsquo;s a transducer?
+<ul class="org-ul">
+<li>It&rsquo;s a reducing function transformer!
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">What&rsquo;s a reducing function?
+<ul class="org-ul">
+<li>It&rsquo;s a function you&rsquo;d pass to reduce!
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Gee, thanks!
+</li>
+</ul>
+
+</section>
+<section id="sec-6-3" >
+
+<h3>Monads</h3>
+<p>
+Just monoids in the category of endofunctors!
+</p>
+
+<aside class="notes">
+<p>
+My spell checker is not convinced these are words
+</p>
+</aside>
+
+</section>
+<section id="sec-6-4" >
+
+<h3><code>map</code></h3>
+<p>
+<code>(map f coll)</code>
+</p>
+
+<p>
+(<code>(f x)</code> for all <code>x</code> in <code>coll</code>)
+</p>
+
+<p>
+<code>(map inc [1 2 3]) ;; =&gt; (2 3 4)</code>
+</p>
+
+</section>
+<section id="sec-6-5" >
+
+<h3><code>filter</code></h3>
+<p>
+<code>(filter f coll)</code>
+</p>
+
+<p>
+(all of the <code>x</code> in <code>coll</code>, if <code>(f x)</code>)
+</p>
+
+<p>
+<code>(filter even? [1 2 3]) ;; =&gt; (2)</code>
+</p>
+
+</section>
+<section id="sec-6-6" >
+
+<h3><code>reduce</code></h3>
+<p>
+<code>(defn sum [coll] (reduce + coll))</code>
+</p>
+
+</section>
+<section id="sec-6-7" >
+
+<h3>Problem!</h3>
+<p>
+We kept implementing <code>map</code>, <code>reduce</code>, etc.
+</p>
+
+<ul class="org-ul">
+<li>Collections (the ones we just saw)
+</li>
+<li>Streams
+</li>
+<li>Observables
+</li>
+<li>Channels (core.async)
+</li>
+</ul>
+
+</section>
+<section id="sec-6-8" >
+
+<h3>Big idea</h3>
+<ul class="org-ul">
+<li>Extract the <i>essence</i> of map, reduce&#x2026;
+</li>
+<li>Specifically, remove collections
+</li>
+<li>Turn them into <i>process transformations</i>
+</li>
+<li>Very &ldquo;functional&rdquo;
+</li>
+</ul>
+
+</section>
+<section id="sec-6-9" >
+
+<h3>Processes</h3>
+<ul class="org-ul">
+<li>Succession of steps
+</li>
+<li>Each step takes an input
+</li>
+<li>Example: building a collection
+</li>
+<li>Generally: seeded left reduce
+</li>
+</ul>
+
+</section>
+<section id="sec-6-10" >
+
+<h3>Example with map</h3>
+<p>
+<code>(map f)</code>
+</p>
+
+<p>
+vs.
+</p>
+
+<p>
+<code>(map f coll)</code>
+</p>
+
+<p>
+<code>(partial map f)</code>
+</p>
+
+</section>
+<section id="sec-6-11" >
+
+<h3>Big example</h3>
+<p>
+<del>Stole</del> Borrowed from Rich Hickey at Strange Loop
+</p>
+
+<p>
+TODO: actually steal
 </p>
 </section>
 

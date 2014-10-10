@@ -83,6 +83,7 @@
    #+ATTR_REVEAL: :frag roll-in
    * Immutability & functional programming
    * JVM, but also JS back-ends
+   * Generally applicable
    * "Just /do/ it already" (my favorite)
    * ...
 
@@ -145,7 +146,6 @@
    Usually not considered a compliment
    But hopefully I've piqued your interest
    #+END_NOTES
-
 
 * Big ideas
 
@@ -324,6 +324,64 @@
    #+ATTR_HTML: :style width:50%
    [[./media/HashTrieGarbage.svg]]
 
+* Reference types & concurrency
+** STM
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Software transactional memory
+   * Transactions (ACI, not D)
+   * Backed by MVCC
+
+   #+BEGIN_NOTES
+   Transactions: atomicity, consistency, isolation (not durability)
+   Since Clojure 1.0
+   #+END_NOTES
+
+** STM example
+
+** ~@Raw~
+
+   #+BEGIN_NOTES
+   Not complaining about Steegmans or his class
+   He's a great guy, hates giving that class in Java as much as we hated getting it in Java
+   But @Raw makes me sad
+   #+END_NOTES
+
+** Need a synchronization primitive?
+
+   #+ATTR_HTML: :style width:90%
+   [[./media/whynotzoidberg.png]]
+
+** Locks are /incredibly/ hard to use
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Very tricky to reason about
+     #+ATTR_REVEAL: :frag roll-in
+     * Deadlock free?
+     * Livelock free?
+     * Are you /sure/?
+   * Some patterns are easy, but inefficient
+     * Example: GIL
+   * Requires extensive error handling
+     * Yay, orphaned locks
+   * Worst part: often /looks/ like it's working
+     * ... even when the program is totally incorrect
+
+** Failure modes
+
+    #+ATTR_REVEAL: :frag roll-in
+    * ~Segmentation fault~
+    * Data corruption
+    * Silent data corruption
+
+** Comparison
+
+    Manual memory management
+
+    versus
+
+    GC and lifetime analysis
+
 * Transducers
 ** Fairly new feature
 
@@ -403,63 +461,7 @@
 
    +Stole+ Borrowed from Rich Hickey at Strange Loop
 
-* Concurrency
-** STM
-
-   #+ATTR_REVEAL: :frag roll-in
-   * Software transactional memory
-   * Transactions (ACI, not D)
-   * Backed by MVCC
-
-   #+BEGIN_NOTES
-   Transactions: atomicity, consistency, isolation (not durability)
-   Since Clojure 1.0
-   #+END_NOTES
-
-** STM example
-
-** ~@Raw~
-
-   #+BEGIN_NOTES
-   Not complaining about Steegmans or his class
-   He's a great guy, hates giving that class in Java as much as we hated getting it in Java
-   But @Raw makes me sad
-   #+END_NOTES
-
-** Need a synchronization primitive?
-
-   #+ATTR_HTML: :style width:90%
-   [[./media/whynotzoidberg.png]]
-
-** Locks are /incredibly/ hard to use
-
-   #+ATTR_REVEAL: :frag roll-in
-   * Very tricky to reason about
-     #+ATTR_REVEAL: :frag roll-in
-     * Deadlock free?
-     * Livelock free?
-     * Are you /sure/?
-   * Some patterns are easy, but inefficient
-     * Example: GIL
-   * Requires extensive error handling
-     * Yay, orphaned locks
-   * Worst part: often /looks/ like it's working
-     * ... even when the program is totally incorrect
-
-** Failure modes
-
-    #+ATTR_REVEAL: :frag roll-in
-    * ~Segmentation fault~
-    * Data corruption
-    * Silent data corruption
-
-** Comparison
-
-    Manual memory management
-
-    versus
-
-    GC and lifetime analysis
+   TODO: actually steal
 
 * Macrology
 ** Code ≡ data
