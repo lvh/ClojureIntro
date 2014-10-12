@@ -261,10 +261,12 @@
      * The future does not /change/ the past
    * Concurrency makes everything worse
 
-** Persistent data structures
 
-   * Not about persisting to a database
-   * Specific way of implementing immutable data structures
+* Persistent data structures
+** What is a persistent data structure?
+
+   * Not about /persisting/ to a database
+   * Class of immutable data structures
    * Given ~x~, ~(f x)~, will give you a /new/ data structure
 
 ** Performance?
