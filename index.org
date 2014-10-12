@@ -293,9 +293,10 @@
 
 ** New possibilities
 
-   * Old versions are cheap!
-     * Easy-to-implement undo, "time travel"
-     * Speculative evaluation
+   Keeping old versions around is cheap!
+
+  * Easy "undo", "time travel"
+  * Speculative evaluation
 
 ** How does it actually work?
 
