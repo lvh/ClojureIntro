@@ -271,12 +271,13 @@
 
 ** Performance?
 
+   #+ATTR_REVEAL: :frag roll-in
    * Typically not an issue
+     * Modern implementations are very efficient
      * JVM is an impressive piece of engineering
-   * Modern persistent data structures are quite efficient
    * There's always options:
      * ~transient~, ~persistent!~
-     * import a faster Java alternative
+     * import classic data structures
 
 ** Performance is often /better/
 
