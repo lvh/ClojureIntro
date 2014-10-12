@@ -428,7 +428,7 @@ E.g. collections
 <ul class="org-ul">
 <li class="fragment roll-in">Java: ArrayList, Hash(Set|Map)
 </li>
-<li class="fragment roll-in">Python: list, set, map&#x2026;
+<li class="fragment roll-in">Python: list, set, dict&#x2026;
 </li>
 <li class="fragment roll-in">Counterexample: tuple
 </li>
@@ -523,13 +523,13 @@ Imperative programming!
 </section>
 <section id="sec-5-1" >
 
-<h3>What is a persistent data structure?</h3>
+<h3>What are they?</h3>
 <ul class="org-ul">
-<li>Not about <i>persisting</i> to a database
+<li class="fragment roll-in">Class of immutable data structures
 </li>
-<li>Class of immutable data structures
+<li class="fragment roll-in"><code>(f x)</code> gives you <i>new</i> data structure
 </li>
-<li>Given <code>x</code>, <code>(f x)</code>, will give you a <i>new</i> data structure
+<li class="fragment roll-in">Not about <i>persisting</i> to a database
 </li>
 </ul>
 
@@ -546,7 +546,7 @@ Imperative programming!
 </li>
 </ul>
 </li>
-<li class="fragment roll-in">There&rsquo;s always options:
+<li class="fragment roll-in">There are always options:
 <ul class="org-ul">
 <li><code>transient</code>, <code>persistent!</code>
 </li>
@@ -561,15 +561,23 @@ Imperative programming!
 
 <h3>Performance is often <i>better</i></h3>
 <ul class="org-ul">
-<li>E.g. pointer equality checks
+<li class="fragment roll-in">E.g. pointer equality checks
 <ul class="org-ul">
 <li>Example: Om beating React.js
 </li>
 </ul>
 </li>
-<li>Free sharing
+<li class="fragment roll-in">Get data sharing for free
 <ul class="org-ul">
 <li>No defensive copying, cloning, locks&#x2026;
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Conclusion
+<ul class="org-ul">
+<li>Maybe some operations are slow&#x2026;
+</li>
+<li>Entire program can still be faster!
 </li>
 </ul>
 </li>
@@ -579,14 +587,14 @@ Imperative programming!
 <section id="sec-5-4" >
 
 <h3>New possibilities</h3>
+<p>
+Keeping old versions around is cheap!
+</p>
+
 <ul class="org-ul">
-<li>Old versions are cheap!
-<ul class="org-ul">
-<li>Easy-to-implement undo, &ldquo;time travel&rdquo;
+<li>Easy &ldquo;undo&rdquo;, &ldquo;time travel&rdquo;
 </li>
 <li>Speculative evaluation
-</li>
-</ul>
 </li>
 </ul>
 
@@ -684,9 +692,13 @@ Bit-partitioned hash tries
 
 <colgroup>
 <col  class="left" />
+</colgroup>
 
+<colgroup>
 <col  class="left" />
+</colgroup>
 
+<colgroup>
 <col  class="left" />
 </colgroup>
 <thead>
@@ -719,6 +731,36 @@ Bit-partitioned hash tries
 
 </section>
 <section id="sec-6-2" >
+
+<h3>Conventional OOP model</h3>
+<img src="./media/RefTypes/Object.svg" alt="Object.svg" />
+
+<p>
+Encapsulation doesn&rsquo;t fix this!
+</p>
+
+</section>
+<section id="sec-6-3" >
+
+<h3>Clojure model</h3>
+<img src="./media/RefTypes/RefAndValue.svg" alt="RefAndValue.svg" />
+
+<p>
+Indirect reference to immutable value
+</p>
+
+</section>
+<section id="sec-6-4" >
+
+<h3>Updating</h3>
+<img src="./media/RefTypes/UpdatingRefAndValue.svg" alt="UpdatingRefAndValue.svg" />
+
+<p>
+Doesn&rsquo;t affect readers; not affected by readers
+</p>
+
+</section>
+<section id="sec-6-5" >
 
 <h3>Clojure reference types</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -754,7 +796,7 @@ Bit-partitioned hash tries
 <th scope="col" class="center">agent</th>
 <th scope="col" class="center">atom</th>
 <th scope="col" class="center">volatile</th>
-<th scope="col" class="center">vars</th>
+<th scope="col" class="center">(vars)</th>
 </tr>
 </thead>
 <tbody>
@@ -788,12 +830,45 @@ Bit-partitioned hash tries
 </table>
 
 </section>
-<section id="sec-6-3" >
+<section id="sec-6-6" >
 
-<h3>What do reference types <i>do</i>?</h3>
+<h3>Consistent interface</h3>
+<ul class="org-ul">
+<li><code>(transition-fn ref func [&amp; args])</code>
+</li>
+<li><code>new-state: (func current-state &amp;args)</code>
+</li>
+<li>Get current value: <code>@ref</code>
+</li>
+<li>No user locking; no deadlocks
+</li>
+</ul>
 
 </section>
-<section id="sec-6-4" >
+<section id="sec-6-7" >
+
+<h3>Ref types provide time semantics</h3>
+<img src="./media/ValueIdentityState.svg" alt="ValueIdentityState.svg" />
+
+</section>
+<section id="sec-6-8" >
+
+<h3>Consistency models</h3>
+<p>
+Deep similarity!
+</p>
+
+<ul class="org-ul">
+<li>Describe how concurrent ops can interact
+</li>
+<li>E.g. linearizability, serailizability, RYW, MR, MW&#x2026;
+</li>
+<li>Gives you &ldquo;time&rdquo; (not wallclock time)
+</li>
+</ul>
+
+</section>
+<section id="sec-6-9" >
 
 <h3>STM</h3>
 <ul class="org-ul">
@@ -813,12 +888,12 @@ Since Clojure 1.0
 </aside>
 
 </section>
-<section id="sec-6-5" >
+<section id="sec-6-10" >
 
 <h3>STM example</h3>
 
 </section>
-<section id="sec-6-6" >
+<section id="sec-6-11" >
 
 <h3><code>@Raw</code></h3>
 <aside class="notes">
@@ -830,13 +905,13 @@ But @Raw makes me sad
 </aside>
 
 </section>
-<section id="sec-6-7" >
+<section id="sec-6-12" >
 
 <h3>Need a synchronization primitive?</h3>
 <img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-6-8" >
+<section id="sec-6-13" >
 
 <h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
@@ -852,7 +927,7 @@ But @Raw makes me sad
 </li>
 <li class="fragment roll-in">Some patterns are easy, but inefficient
 <ul class="org-ul">
-<li>Example: GIL
+<li>Example: GIL, BKL
 </li>
 </ul>
 </li>
@@ -871,7 +946,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-6-9" >
+<section id="sec-6-14" >
 
 <h3>Failure modes</h3>
 <ul class="org-ul">
@@ -884,7 +959,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-6-10" >
+<section id="sec-6-15" >
 
 <h3>Comparison</h3>
 <p>
