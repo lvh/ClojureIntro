@@ -263,11 +263,12 @@
 
 
 * Persistent data structures
-** What is a persistent data structure?
+** What are they?
 
-   * Not about /persisting/ to a database
+   #+ATTR_REVEAL: :frag roll-in
    * Class of immutable data structures
-   * Given ~x~, ~(f x)~, will give you a /new/ data structure
+   * ~(f x)~ gives you /new/ data structure
+   * Not about /persisting/ to a database
 
 ** Performance?
 
