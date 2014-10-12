@@ -343,6 +343,24 @@
    | *Objects*      | Mutable       | Immutable          |
    | *Concurrency?* | Lock-and-pray | Ref type semantics |
 
+** Conventional OOP model
+
+   [[./media/RefTypes/Object.svg]]
+
+   Encapsulation doesn't fix this!
+
+** Clojure model
+
+   [[./media/RefTypes/RefAndValue.svg]]
+
+   Indirect reference to immutable value
+
+** Updating
+
+   [[./media/RefTypes/UpdatingRefAndValue.svg]]
+
+   Doesn't affect readers; not affected by readers
+
 ** Clojure reference types
 
    |                | <c> | <c>   | <c>  | <c>      | <c>    |

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="13cm" height="6cm" viewBox="313 279 253 107" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="440" y="280" width="125.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="440" y="280" width="125.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="502.75" y="299">Object</text>
+    <rect style="fill: #ffffff" x="440" y="308" width="125.5" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="440" y="308" width="125.5" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="443" y="322">+a = 1</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="443" y="338">+b = (fn [...])</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="443" y="354">+c = "Fred"</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="443" y="370">+d = "Barney"</text>
+    <rect style="fill: #ffffff" x="440" y="376" width="125.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="440" y="376" width="125.5" height="8"/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 300 C 380,340 336.243,280.144 434.724,310.814"/>
+    <path style="fill: #000000" d="M 320 300 C 321.387,297.92 324.854,297.226 326.934,298.613 C 329.014,300 329.707,303.467 328.321,305.547 C 326.934,307.627 323.467,308.321 321.387,306.934 C 319.307,305.547 318.613,302.08 320,300z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 300 C 321.387,297.92 324.854,297.226 326.934,298.613 C 329.014,300 329.707,303.467 328.321,305.547 C 326.934,307.627 323.467,308.321 321.387,306.934 C 319.307,305.547 318.613,302.08 320,300"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="425.824,313.279 436.859,311.479 428.798,303.732 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 360 C 320,380 376.253,388.445 434.919,362.267"/>
+    <path style="fill: #000000" d="M 320 360 C 322.5,360 325,362.5 325,365 C 325,367.5 322.5,370 320,370 C 317.5,370 315,367.5 315,365 C 315,362.5 317.5,360 320,360z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 360 C 322.5,360 325,362.5 325,365 C 325,367.5 322.5,370 320,370 C 317.5,370 315,367.5 315,365 C 315,362.5 317.5,360 320,360"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="429.867,369.997 436.961,361.356 425.792,360.865 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320,340 A 1062.85,1062.85 0 0 0 434.535,338.683"/>
+    <path style="fill: #000000" d="M 320 340 C 320.106,337.502 322.71,335.11 325.208,335.216 C 327.705,335.322 330.097,337.926 329.991,340.424 C 329.885,342.922 327.281,345.314 324.784,345.208 C 322.286,345.102 319.894,342.498 320,340z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 340 C 320.106,337.502 322.71,335.11 325.208,335.216 C 327.705,335.322 330.097,337.926 329.991,340.424 C 329.885,342.922 327.281,345.314 324.784,345.208 C 322.286,345.102 319.894,342.498 320,340"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="427.138,344.22 436.766,338.537 426.442,334.245 "/>
+  </g>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="19cm" height="6cm" viewBox="318 279 368 107" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="560" y="280" width="125.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="560" y="280" width="125.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="622.75" y="299">Value</text>
+    <rect style="fill: #ffffff" x="560" y="308" width="125.5" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="560" y="308" width="125.5" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="563" y="322">+a = 1</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="563" y="338">+b = (fn [...])</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="563" y="354">+c = "Fred"</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="563" y="370">+d = "Barney"</text>
+    <rect style="fill: #ffffff" x="560" y="376" width="125.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="560" y="376" width="125.5" height="8"/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 320 C 360,300 373.441,284.065 419.606,311.764"/>
+    <path style="fill: #000000" d="M 320 320 C 318.882,317.764 320,314.41 322.236,313.292 C 324.472,312.174 327.826,313.292 328.944,315.528 C 330.062,317.764 328.944,321.118 326.708,322.236 C 324.472,323.354 321.118,322.236 320,320z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 320 C 318.882,317.764 320,314.41 322.236,313.292 C 324.472,312.174 327.826,313.292 328.944,315.528 C 330.062,317.764 328.944,321.118 326.708,322.236 C 324.472,323.354 321.118,322.236 320,320"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="410.376,312.057 421.524,312.914 415.521,303.482 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 360 C 380,380 373.522,375.887 419.687,348.188"/>
+    <path style="fill: #000000" d="M 320 360 C 320.791,357.628 323.953,356.047 326.325,356.838 C 328.696,357.628 330.277,360.791 329.487,363.162 C 328.696,365.534 325.534,367.115 323.162,366.325 C 320.791,365.534 319.209,362.372 320,360z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 360 C 320.791,357.628 323.953,356.047 326.325,356.838 C 328.696,357.628 330.277,360.791 329.487,363.162 C 328.696,365.534 325.534,367.115 323.162,366.325 C 320.791,365.534 319.209,362.372 320,360"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="415.602,356.47 421.604,347.037 410.457,347.895 "/>
+  </g>
+  <g>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320,340 A 540.945,540.945 0 0 0 415.062,335.812"/>
+    <path style="fill: #000000" d="M 320 340 C 320.11,337.502 322.718,335.115 325.215,335.225 C 327.713,335.335 330.1,337.943 329.99,340.44 C 329.88,342.938 327.273,345.325 324.775,345.215 C 322.277,345.105 319.89,342.498 320,340z"/>
+    <path style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" d="M 320 340 C 320.11,337.502 322.718,335.115 325.215,335.225 C 327.713,335.335 330.1,337.943 329.99,340.44 C 329.88,342.938 327.273,345.325 324.775,345.215 C 322.277,345.105 319.89,342.498 320,340"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="408.076,341.867 417.279,335.517 406.677,331.965 "/>
+  </g>
+  <g>
+    <ellipse style="fill: #ffffff" cx="450" cy="330" rx="30" ry="30"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="450" cy="330" rx="30" ry="30"/>
+  </g>
+  <g>
+    <line style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x1="480.978" y1="330.359" x2="554.678" y2="331.212"/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="546.857,336.122 556.914,331.238 546.972,326.122 "/>
+  </g>
+</svg>
