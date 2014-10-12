@@ -283,7 +283,7 @@
 
    * E.g. pointer equality checks
      * Example: Om beating React.js
-   * Free sharing
+   * Get data sharing for free
      * No defensive copying, cloning, locks...
 
 ** New possibilities
