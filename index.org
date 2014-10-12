@@ -360,8 +360,17 @@
    * Get current value: ~@ref~
    * No user locking; no deadlocks
 
+** Ref types provide time semantics
 
-** What do reference types /do/?
+   [[./media/ValueIdentityState.svg]]
+
+** Consistency models
+
+   Deep similarity!
+
+   * Describe how concurrent ops can interact
+   * E.g. linearizability, serailizability, RYW, MR, MW...
+   * Gives you "time" (not wallclock time)
 
 ** STM
 
