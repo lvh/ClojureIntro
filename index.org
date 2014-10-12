@@ -338,6 +338,7 @@
 
    |                | Conventional  | Clojure            |
    |----------------+---------------+--------------------|
+   | /              | <             | <                  |
    | *References*   | Direct        | Indirect           |
    | *Objects*      | Mutable       | Immutable          |
    | *Concurrency?* | Lock-and-pray | Ref type semantics |
