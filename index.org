@@ -390,7 +390,7 @@
      * Livelock free?
      * Are you /sure/?
    * Some patterns are easy, but inefficient
-     * Example: GIL
+     * Example: GIL, BKL
    * Requires extensive error handling
      * Yay, orphaned locks!
    * Worst part: often /looks/ like it's working
