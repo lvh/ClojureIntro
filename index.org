@@ -366,7 +366,7 @@
    * Some patterns are easy, but inefficient
      * Example: GIL
    * Requires extensive error handling
-     * Yay, orphaned locks
+     * Yay, orphaned locks!
    * Worst part: often /looks/ like it's working
      * ... even when the program is totally incorrect
 
