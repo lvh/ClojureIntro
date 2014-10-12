@@ -512,45 +512,52 @@ Imperative programming!
 <li>Concurrency makes everything worse
 </li>
 </ul>
+</section>
+
 
 </section>
-<section id="sec-4-11" >
+<section>
+<section id="sec-5" >
 
-<h3>Persistent data structures</h3>
+<h2>Persistent data structures</h2>
+</section>
+<section id="sec-5-1" >
+
+<h3>What is a persistent data structure?</h3>
 <ul class="org-ul">
-<li>Not about persisting to a database
+<li>Not about <i>persisting</i> to a database
 </li>
-<li>Specific way of implementing immutable data structures
+<li>Class of immutable data structures
 </li>
 <li>Given <code>x</code>, <code>(f x)</code>, will give you a <i>new</i> data structure
 </li>
 </ul>
 
 </section>
-<section id="sec-4-12" >
+<section id="sec-5-2" >
 
 <h3>Performance?</h3>
 <ul class="org-ul">
-<li>Typically not an issue
+<li class="fragment roll-in">Typically not an issue
 <ul class="org-ul">
+<li>Modern implementations are very efficient
+</li>
 <li>JVM is an impressive piece of engineering
 </li>
 </ul>
 </li>
-<li>Modern persistent data structures are quite efficient
-</li>
-<li>There&rsquo;s always options:
+<li class="fragment roll-in">There&rsquo;s always options:
 <ul class="org-ul">
 <li><code>transient</code>, <code>persistent!</code>
 </li>
-<li>import a faster Java alternative
+<li>import classic data structures
 </li>
 </ul>
 </li>
 </ul>
 
 </section>
-<section id="sec-4-13" >
+<section id="sec-5-3" >
 
 <h3>Performance is often <i>better</i></h3>
 <ul class="org-ul">
@@ -569,7 +576,7 @@ Imperative programming!
 </ul>
 
 </section>
-<section id="sec-4-14" >
+<section id="sec-5-4" >
 
 <h3>New possibilities</h3>
 <ul class="org-ul">
@@ -584,7 +591,7 @@ Imperative programming!
 </ul>
 
 </section>
-<section id="sec-4-15" >
+<section id="sec-5-5" >
 
 <h3>How does it actually work?</h3>
 <p>
@@ -592,13 +599,13 @@ Bit-partitioned hash tries
 </p>
 
 </section>
-<section id="sec-4-16" >
+<section id="sec-5-6" >
 
 <h3>Bit partitioning</h3>
 <img src="./media/BitPartition.svg" alt="BitPartition.svg" />
 
 </section>
-<section id="sec-4-17" >
+<section id="sec-5-7" >
 
 <h3>Hash trie</h3>
 <img src="./media/BitPartitionPart.svg" alt="BitPartitionPart.svg" style="width:40%;display:block;margin-left:auto;margin-right:auto" />
@@ -606,13 +613,13 @@ Bit-partitioned hash tries
 <img src="./media/HashTrie.svg" alt="HashTrie.svg" style="width:50%" />
 
 </section>
-<section id="sec-4-18" >
+<section id="sec-5-8" >
 
 <h3>Path copying</h3>
 <img src="./media/HashTrieWithAssoc.svg" alt="HashTrieWithAssoc.svg" style="width:50%" />
 
 </section>
-<section id="sec-4-19" >
+<section id="sec-5-9" >
 
 <h3>How deep does it go?</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -657,7 +664,7 @@ Bit-partitioned hash tries
 </table>
 
 </section>
-<section id="sec-4-20" >
+<section id="sec-5-10" >
 
 <h3>Garbage-efficient</h3>
 <img src="./media/HashTrieGarbage.svg" alt="HashTrieGarbage.svg" style="width:50%" />
@@ -665,11 +672,128 @@ Bit-partitioned hash tries
 
 </section>
 <section>
-<section id="sec-5" >
+<section id="sec-6" >
 
 <h2>Reference types &amp; concurrency</h2>
 </section>
-<section id="sec-5-1" >
+<section id="sec-6-1" >
+
+<h3>Conventional OOP vs Clojure</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">Conventional</th>
+<th scope="col" class="left">Clojure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><b>References</b></td>
+<td class="left">Direct</td>
+<td class="left">Indirect</td>
+</tr>
+
+<tr>
+<td class="left"><b>Objects</b></td>
+<td class="left">Mutable</td>
+<td class="left">Immutable</td>
+</tr>
+
+<tr>
+<td class="left"><b>Concurrency?</b></td>
+<td class="left">Lock-and-pray</td>
+<td class="left">Ref type semantics</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="sec-6-2" >
+
+<h3>Clojure reference types</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+</colgroup>
+
+<colgroup>
+<col  class="center" />
+</colgroup>
+
+<colgroup>
+<col  class="center" />
+</colgroup>
+
+<colgroup>
+<col  class="center" />
+</colgroup>
+
+<colgroup>
+<col  class="center" />
+</colgroup>
+
+<colgroup>
+<col  class="center" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="center">ref</th>
+<th scope="col" class="center">agent</th>
+<th scope="col" class="center">atom</th>
+<th scope="col" class="center">volatile</th>
+<th scope="col" class="center">vars</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left"><b>Shared?</b></td>
+<td class="center">✓</td>
+<td class="center">✓</td>
+<td class="center">✓</td>
+<td class="center">✗</td>
+<td class="center">✗</td>
+</tr>
+
+<tr>
+<td class="left"><b>Synchronous?</b></td>
+<td class="center">✓</td>
+<td class="center">✗</td>
+<td class="center">✓</td>
+<td class="center">✓</td>
+<td class="center">✓</td>
+</tr>
+
+<tr>
+<td class="left"><b>Coordinated?</b></td>
+<td class="center">✓</td>
+<td class="center">✗</td>
+<td class="center">✗</td>
+<td class="center">✗</td>
+<td class="center">✗</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section id="sec-6-3" >
+
+<h3>What do reference types <i>do</i>?</h3>
+
+</section>
+<section id="sec-6-4" >
 
 <h3>STM</h3>
 <ul class="org-ul">
@@ -689,12 +813,12 @@ Since Clojure 1.0
 </aside>
 
 </section>
-<section id="sec-5-2" >
+<section id="sec-6-5" >
 
 <h3>STM example</h3>
 
 </section>
-<section id="sec-5-3" >
+<section id="sec-6-6" >
 
 <h3><code>@Raw</code></h3>
 <aside class="notes">
@@ -706,13 +830,13 @@ But @Raw makes me sad
 </aside>
 
 </section>
-<section id="sec-5-4" >
+<section id="sec-6-7" >
 
 <h3>Need a synchronization primitive?</h3>
 <img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-5-5" >
+<section id="sec-6-8" >
 
 <h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
@@ -734,7 +858,7 @@ But @Raw makes me sad
 </li>
 <li class="fragment roll-in">Requires extensive error handling
 <ul class="org-ul">
-<li>Yay, orphaned locks
+<li>Yay, orphaned locks!
 </li>
 </ul>
 </li>
@@ -747,7 +871,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-5-6" >
+<section id="sec-6-9" >
 
 <h3>Failure modes</h3>
 <ul class="org-ul">
@@ -760,7 +884,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-5-7" >
+<section id="sec-6-10" >
 
 <h3>Comparison</h3>
 <p>
@@ -778,11 +902,11 @@ GC and lifetime analysis
 
 </section>
 <section>
-<section id="sec-6" >
+<section id="sec-7" >
 
 <h2>Transducers</h2>
 </section>
-<section id="sec-6-1" >
+<section id="sec-7-1" >
 
 <h3>Fairly new feature</h3>
 <p>
@@ -790,7 +914,7 @@ GC and lifetime analysis
 </p>
 
 </section>
-<section id="sec-6-2" >
+<section id="sec-7-2" >
 
 <h3>Only bad part is the name</h3>
 <ul class="org-ul">
@@ -811,7 +935,7 @@ GC and lifetime analysis
 </ul>
 
 </section>
-<section id="sec-6-3" >
+<section id="sec-7-3" >
 
 <h3>Monads</h3>
 <p>
@@ -825,7 +949,7 @@ My spell checker is not convinced these are words
 </aside>
 
 </section>
-<section id="sec-6-4" >
+<section id="sec-7-4" >
 
 <h3><code>map</code></h3>
 <p>
@@ -841,7 +965,7 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-6-5" >
+<section id="sec-7-5" >
 
 <h3><code>filter</code></h3>
 <p>
@@ -857,7 +981,7 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-6-6" >
+<section id="sec-7-6" >
 
 <h3><code>reduce</code></h3>
 <p>
@@ -865,7 +989,7 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-6-7" >
+<section id="sec-7-7" >
 
 <h3>Problem!</h3>
 <p>
@@ -884,7 +1008,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </ul>
 
 </section>
-<section id="sec-6-8" >
+<section id="sec-7-8" >
 
 <h3>Big idea</h3>
 <ul class="org-ul">
@@ -899,7 +1023,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </ul>
 
 </section>
-<section id="sec-6-9" >
+<section id="sec-7-9" >
 
 <h3>Processes</h3>
 <ul class="org-ul">
@@ -914,7 +1038,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </ul>
 
 </section>
-<section id="sec-6-10" >
+<section id="sec-7-10" >
 
 <h3>Example with map</h3>
 <p>
@@ -934,7 +1058,29 @@ vs.
 </p>
 
 </section>
-<section id="sec-6-11" >
+<section id="sec-7-11" >
+
+<h3>Example use case</h3>
+<p>
+<a href="http://blog.eikeland.se/">http://blog.eikeland.se/</a>
+</p>
+
+<img src="./media/EggTransducer/Setup.jpg" alt="Setup.jpg" />
+
+</section>
+<section id="sec-7-12" >
+
+<h3>Probe + heater + egg + Arduino</h3>
+<img src="./media/EggTransducer/Heater.jpg" alt="Heater.jpg" />
+
+</section>
+<section id="sec-7-13" >
+
+<h3>Results: delicious!</h3>
+<img src="./media/EggTransducer/Results.jpg" alt="Results.jpg" />
+
+</section>
+<section id="sec-7-14" >
 
 <h3>Big example</h3>
 <p>
@@ -948,11 +1094,11 @@ TODO: actually steal
 
 </section>
 <section>
-<section id="sec-7" >
+<section id="sec-8" >
 
 <h2>Macrology</h2>
 </section>
-<section id="sec-7-1" >
+<section id="sec-8-1" >
 
 <h3>Code ≡ data</h3>
 <p>
@@ -968,7 +1114,7 @@ Many basic &ldquo;language features&rdquo; are macros:
 </p>
 
 </section>
-<section id="sec-7-2" >
+<section id="sec-8-2" >
 
 <h3>Domain specific languages</h3>
 <ul class="org-ul">
@@ -979,20 +1125,20 @@ Many basic &ldquo;language features&rdquo; are macros:
 
 </section>
 <section>
-<section id="sec-8" >
+<section id="sec-9" >
 
 <h2>Polymorphism</h2>
 </section>
-<section id="sec-8-1" >
+<section id="sec-9-1" >
 
 <h3>Protocols</h3>
 </section>
-<section id="sec-8-2" >
+<section id="sec-9-2" >
 
 <h3>Multimethods</h3>
 
 </section>
-<section id="sec-8-3" >
+<section id="sec-9-3" >
 
 <h3><code>x.m(a, b, c)</code></h3>
 <p>
@@ -1000,7 +1146,7 @@ Which <code>m</code>?
 </p>
 
 </section>
-<section id="sec-8-4" >
+<section id="sec-9-4" >
 
 <h3><code>m</code> depends on type of <code>x</code></h3>
 <ul class="org-ul">
@@ -1017,7 +1163,7 @@ C# 4.0 apparently supports multimethods
 </aside>
 
 </section>
-<section id="sec-8-5" >
+<section id="sec-9-5" >
 
 <h3>Python: bit more complicated</h3>
 <p>
@@ -1036,7 +1182,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 </section>
-<section id="sec-8-6" >
+<section id="sec-9-6" >
 
 <h3>&ldquo;Sending a message&rdquo;</h3>
 <p>
@@ -1048,7 +1194,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 </section>
-<section id="sec-8-7" >
+<section id="sec-9-7" >
 
 <h3>No interesting differences</h3>
 <ul class="org-ul">
@@ -1059,12 +1205,12 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </ul>
 
 </section>
-<section id="sec-8-8" >
+<section id="sec-9-8" >
 
 <h3>We can do better!</h3>
 
 </section>
-<section id="sec-8-9" >
+<section id="sec-9-9" >
 
 <h3>Multimethods</h3>
 <p>
@@ -1072,7 +1218,7 @@ Routing logic: <code>f(x)</code>
 </p>
 
 </section>
-<section id="sec-8-10" >
+<section id="sec-9-10" >
 
 <h3>Example</h3>
 <p>
@@ -1082,11 +1228,11 @@ TODO: show examples in icecap
 
 </section>
 <section>
-<section id="sec-9" >
+<section id="sec-10" >
 
 <h2><code>core.logic</code></h2>
 </section>
-<section id="sec-9-1" >
+<section id="sec-10-1" >
 
 <h3>The Reasoned Schemer</h3>
 <img src="./media/ReasonedSchemer.jpg" alt="ReasonedSchemer.jpg" />
@@ -1094,16 +1240,16 @@ TODO: show examples in icecap
 
 </section>
 <section>
-<section id="sec-10" >
+<section id="sec-11" >
 
 <h2>Conclusion</h2>
 </section>
-<section id="sec-10-1" >
+<section id="sec-11-1" >
 
 <h3>A modern, pragmatic Lisp</h3>
 
 </section>
-<section id="sec-10-2" >
+<section id="sec-11-2" >
 
 <h3>Don&rsquo;t learn Clojure!</h3>
 <p>
@@ -1113,17 +1259,17 @@ Going back is painful ;-)
 
 </section>
 <section>
-<section id="sec-11" >
+<section id="sec-12" >
 
 <h2>Thank you!</h2>
 </section>
 </section>
 <section>
-<section id="sec-12" >
+<section id="sec-13" >
 
 <h2>Questions?</h2>
 </section>
-<section id="sec-12-1" >
+<section id="sec-13-1" >
 
 <h3>Suggested rants</h3>
 <p>
