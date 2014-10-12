@@ -460,6 +460,20 @@
 
    ~(partial map f)~
 
+** Example use case
+
+   http://blog.eikeland.se/
+
+   [[./media/EggTransducer/Setup.jpg]]
+
+** Probe + heater + egg + Arduino
+
+   [[./media/EggTransducer/Heater.jpg]]
+
+** Results: delicious!
+
+   [[./media/EggTransducer/Results.jpg]]
+
 ** Big example
 
    +Stole+ Borrowed from Rich Hickey at Strange Loop
