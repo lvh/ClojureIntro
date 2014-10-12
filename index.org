@@ -219,7 +219,7 @@
 
    #+ATTR_REVEAL: :frag roll-in
    * Java: ArrayList, Hash(Set|Map)
-   * Python: list, set, map...
+   * Python: list, set, dict...
    * Counterexample: tuple
 
    #+BEGIN_NOTES
