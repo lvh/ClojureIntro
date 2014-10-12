@@ -353,6 +353,13 @@
    | *Synchronous?* | ✓   | ✗     | ✓    | ✓        | ✓      |
    | *Coordinated?* | ✓   | ✗     | ✗    | ✗        | ✗      |
 
+** Consistent interface
+
+   * ~(transition-fn ref func [& args])~
+   * ~new-state: (func current-state &args)~
+   * Get current value: ~@ref~
+   * No user locking; no deadlocks
+
 
 ** What do reference types /do/?
 
