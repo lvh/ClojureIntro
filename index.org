@@ -275,7 +275,7 @@
    * Typically not an issue
      * Modern implementations are very efficient
      * JVM is an impressive piece of engineering
-   * There's always options:
+   * There are always options:
      * ~transient~, ~persistent!~
      * import classic data structures
 
