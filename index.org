@@ -281,6 +281,7 @@
 
 ** Performance is often /better/
 
+   #+ATTR_REVEAL: :frag roll-in
    * E.g. pointer equality checks
      * Example: Om beating React.js
    * Get data sharing for free
