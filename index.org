@@ -285,6 +285,9 @@
      * Example: Om beating React.js
    * Get data sharing for free
      * No defensive copying, cloning, locks...
+   * Conclusion
+     * Maybe some operations are slow...
+     * Entire program can still be faster!
 
 ** New possibilities
 
