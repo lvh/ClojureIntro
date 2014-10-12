@@ -345,13 +345,14 @@
 
 ** Clojure reference types
 
-   |                | <c> | <c>   | <c>  | <c>      | <c>  |
-   |                | ref | agent | atom | volatile | vars |
-   |----------------+-----+-------+------+----------+------|
-   | /              | <   | <     | <    | <        | <    |
-   | *Shared?*      | ✓   | ✓     | ✓    | ✗        | ✗    |
-   | *Synchronous?* | ✓   | ✗     | ✓    | ✓        | ✓    |
-   | *Coordinated?* | ✓   | ✗     | ✗    | ✗        | ✗    |
+   |                | <c> | <c>   | <c>  | <c>      | <c>    |
+   |                | ref | agent | atom | volatile | (vars) |
+   |----------------+-----+-------+------+----------+--------|
+   | /              | <   | <     | <    | <        | <      |
+   | *Shared?*      | ✓   | ✓     | ✓    | ✗        | ✗      |
+   | *Synchronous?* | ✓   | ✗     | ✓    | ✓        | ✓      |
+   | *Coordinated?* | ✓   | ✗     | ✗    | ✗        | ✗      |
+
 
 ** What do reference types /do/?
 
