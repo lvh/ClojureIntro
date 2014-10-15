@@ -391,6 +391,30 @@
    * Gives you "time" (not wallclock time)
 
 ** STM
+** Example: atoms
+
+   * ~(atom init-val)~
+   * ~(swap! some-atom f & args)~ to modify
+     * ~compare-and-set!~ too (bit more low level)
+   * ~reset!~ to rudely modify
+
+** Example: atoms
+
+   #+BEGIN_SRC clojure
+     (def n (atom 1))
+
+     (swap! n inc)
+     ;; => 2
+
+     (swap! n * 10)
+     ;; => 20
+
+   #+END_SRC
+
+** Transitions could be ~swap!~
+
+   [[./media/ValueIdentityState.svg]]
+
 
    #+ATTR_REVEAL: :frag roll-in
    * Software transactional memory
