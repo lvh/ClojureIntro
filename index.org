@@ -89,7 +89,7 @@
    #+ATTR_REVEAL: :frag roll-in
    * Immutability & functional programming
    * JVM, but also JS back-ends
-   * Generally applicable
+   * Generally purpose
    * "Just /do/ it already" (my favorite)
    * ...
 
