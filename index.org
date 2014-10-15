@@ -475,6 +475,13 @@
 
 ** STM example
 
+   #+BEGIN_SRC clojure
+     (defn transfer
+       [amount from to]
+       (alter from - amount)
+       (alter to + amount))
+   #+END_SRC
+
 ** ~alter~ vs ~commute~
 
    * Virtually the same thing
