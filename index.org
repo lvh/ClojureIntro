@@ -569,6 +569,40 @@
 
     GC and lifetime analysis
 
+* Concurrency in practice
+
+** New users
+
+   * Used to imperative patterns
+   * They want variables
+     * How else would you write software?
+   * Result: atoms, atoms everywhere
+     * Eventually: sadness
+
+** Usage pattern: 1 big atom
+
+   One atom, usually with a map, to hold state:
+
+   #+BEGIN_SRC clojure
+     (def app-state
+       (atom {:user-name "lvh"
+              :todo-items ["Take out trash"
+                           "Present Clojure intro"]
+              :done-items #{"Make slides"}}))
+
+   #+END_SRC
+
+** Why not STM?
+
+   I don't know for sure, but I have some hypotheses:
+
+   * /Real/ app state usually less than you might think
+   * High concurrency is not always necessary
+   * Single atom still allows sane state changes
+   * Easy to dump current state: reproducibility!
+
+   Real answer is probably all of the above & more :-)
+
 * Transducers
 ** Fairly new feature
 
