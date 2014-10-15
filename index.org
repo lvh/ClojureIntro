@@ -476,6 +476,56 @@
 
 ** STM example
 
+** ~alter~ vs ~commute~
+
+   * Virtually the same thing
+   * ~commute~ allows more orderings
+     * More orderings: better concurrency
+   * Are those orderings OK?
+     * commutative ~func~
+     * last-write-wins
+
+** Example: ~alter~ vs ~commute~
+
+   #+BEGIN_SRC clojure
+     (def counter (ref 0))
+
+     (defn slow-inc!
+       [alter-fn counter]
+       (dosync
+        (Thread/sleep 100)
+        (alter-fn counter inc)))
+
+     (defn bombard-counter!
+       [n f counter]
+       (apply pcalls (repeat n #(f counter))))
+   #+END_SRC
+
+** ~alter~ performance
+
+   #+BEGIN_SRC clojure
+     (dosync (ref-set counter 0))
+     (time (doall (bombard-counter! 20
+                                    (partial slow-inc! alter)
+                                    counter)))
+     ;; => (1 2 4 3 5 6 13 12 9 8 7 11 10 15 17 14 20 18 19 16)
+     ;; "Elapsed time: 2025.646 msecs"
+     ;; 20 incs * 100 ms = 2000 ms...
+
+   #+END_SRC
+
+** ~commute~ performance
+
+   #+BEGIN_SRC clojure
+     (dosync (ref-set counter 0))
+     (time (doall (bombard-counter! 20
+                                    (partial slow-inc! commute)
+                                    counter)))
+     ;; => (3 6 1 1 7 1 1 8 8 8 8 8 10 14 15 15 19 15 15 19)
+     ;; "Elapsed time: 305.23 msecs"
+     ;; Without delay: virtually instant, so 3 txn attempts
+   #+END_SRC
+
 ** ~@Raw~
 
    #+BEGIN_NOTES
