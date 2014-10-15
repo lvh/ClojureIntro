@@ -564,7 +564,7 @@
    * Requires extensive error handling
      * Yay, orphaned locks!
    * Worst part: often /looks/ like it's working
-     * ... even when the program is totally incorrect
+     * ... even when the program is incorrect
 
 ** Failure modes
 
