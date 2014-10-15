@@ -390,7 +390,6 @@
    * E.g. linearizability, serailizability, RYW, MR, MW...
    * Gives you "time" (not wallclock time)
 
-** STM
 ** Example: atoms
 
    * ~(atom init-val)~
@@ -415,6 +414,9 @@
 
    [[./media/ValueIdentityState.svg]]
 
+* STM
+
+** What is STM?
 
    #+ATTR_REVEAL: :frag roll-in
    * Software transactional memory
