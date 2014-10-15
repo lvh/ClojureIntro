@@ -261,7 +261,6 @@
      * The future does not /change/ the past
    * Concurrency makes everything worse
 
-
 * Persistent data structures
 ** What are they?
 
