@@ -169,9 +169,11 @@ Lots of reasons:
 <ul class="org-ul">
 <li class="fragment roll-in">Immutability &amp; functional programming
 </li>
-<li class="fragment roll-in">JVM, but also JS back-ends
+<li class="fragment roll-in">JVM, also JS &amp; CLR
 </li>
-<li class="fragment roll-in">Generally applicable
+<li class="fragment roll-in">General purpose
+</li>
+<li class="fragment roll-in">Live and REPL-based programming
 </li>
 <li class="fragment roll-in">&ldquo;Just <i>do</i> it already&rdquo; (my favorite)
 </li>
@@ -181,6 +183,35 @@ Lots of reasons:
 
 </section>
 <section id="sec-3-5" >
+
+<h3>Live and REPL-based programming</h3>
+<p>
+How long does it take to try something?
+</p>
+
+<ul class="org-ul">
+<li>C++: <i>ages</i>
+</li>
+<li>Python, Go: pretty fast
+</li>
+<li>Clojure: <code>C-c C-e</code>
+</li>
+</ul>
+
+</section>
+<section id="sec-3-6" >
+
+<h3>Live and REPL-based programming</h3>
+<img src="./media/LiveDevelopment.png" alt="LiveDevelopment.png" />
+
+</section>
+<section id="sec-3-7" >
+
+<h3>Meta-eX</h3>
+<img src="./media/MetaEx.jpg" alt="MetaEx.jpg" />
+
+</section>
+<section id="sec-3-8" >
 
 <h3>Just do it already</h3>
 <p>
@@ -201,7 +232,7 @@ Lots of reasons:
 </ul>
 
 </section>
-<section id="sec-3-6" >
+<section id="sec-3-9" >
 
 <h3>Just do it already</h3>
 <p>
@@ -224,7 +255,7 @@ Software transactional memory
 </ul>
 
 </section>
-<section id="sec-3-7" >
+<section id="sec-3-10" >
 
 <h3>Just do it already</h3>
 <p>
@@ -251,7 +282,7 @@ Asynchronous programming
 </ul>
 
 </section>
-<section id="sec-3-8" >
+<section id="sec-3-11" >
 
 <h3>Just do it already</h3>
 <p>
@@ -266,7 +297,7 @@ Logic programming
 </ul>
 
 </section>
-<section id="sec-3-9" >
+<section id="sec-3-12" >
 
 <h3>Not about Python</h3>
 <p>
@@ -274,7 +305,7 @@ Most other languages are the same or worse
 </p>
 
 </section>
-<section id="sec-3-10" >
+<section id="sec-3-13" >
 
 <h3>Ball of mud</h3>
 <p>
@@ -486,44 +517,130 @@ How many sets?
 
 <h3>Why are we here?</h3>
 <p>
-Imperative programming!
+Imperative, single-threaded programming!
 </p>
 
 <ul class="org-ul">
-<li>No concept of <i>time</i>
+<li class="fragment roll-in">You can work around mutability
 </li>
-<li>Everything happens &ldquo;right now&rdquo;
+<li class="fragment roll-in">&#x2026; iff you&rsquo;re the only actor!
 </li>
 </ul>
 
 </section>
 <section id="sec-5-8" >
 
-<h3>&ldquo;Can&rsquo;t cross the same river twice&rdquo;</h3>
+<h3>What&rsquo;s wrong?</h3>
 <p>
-(Heraclitus, ~500 BC)
+No concept of <i>time</i> or <i>transitions</i>
 </p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">Stop the world, do some stuff, continue
+</li>
+<li class="fragment roll-in">Everything happens &ldquo;right now&rdquo;
+</li>
+<li class="fragment roll-in">That&rsquo;s great, but I have <i>n</i> cores&#x2026;
+</li>
+</ul>
 
 </section>
 <section id="sec-5-9" >
+
+<h3>Idea of values isn&rsquo;t new</h3>
+<p>
+&ldquo;No man can cross the same river twice.&rdquo;
+</p>
+
+<p>
+&#x2013; Heraclitus, ~500 BC
+</p>
+
+</section>
+<section id="sec-5-10" >
 
 <h3>Value, identity, state</h3>
 <img src="./media/ValueIdentityState.svg" alt="ValueIdentityState.svg" />
 
 </section>
-<section id="sec-5-10" >
+<section id="sec-5-11" >
+
+<h3>Identity is just a name</h3>
+<p>
+The river doesn&rsquo;t stop existing just because nobody is around to call
+it a river&#x2026;
+</p>
+
+</section>
+<section id="sec-5-12" >
+
+<h3>States are facts</h3>
+<ul class="org-ul">
+<li class="fragment roll-in">Fact ~ Lat. factum: &ldquo;done&rdquo;
+</li>
+<li class="fragment roll-in">Perfect tense! Does not change!
+</li>
+<li class="fragment roll-in">Example
+<ul class="org-ul">
+<li>Bill Clinton was president of the US.
+</li>
+<li>We can have new presidents
+</li>
+<li>Doesn&rsquo;t change that fact!
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-5-13" >
+
+<h3>We need facts for knowledge</h3>
+<ul class="org-ul">
+<li class="fragment roll-in">We combine, compare facts to make decisions
+<ul class="org-ul">
+<li><i>especially</i> from different time points
+</li>
+</ul>
+</li>
+<li class="fragment roll-in">Imagine if you only knew current state!
+<ul class="org-ul">
+<li>Ever seen &ldquo;Memento&rdquo;?
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-5-14" >
+
+<h3>Our own systems do this</h3>
+<p>
+E.g. logs, source control
+</p>
+
+<p>
+What if they destroyed data?
+</p>
+
+<p>
+They would be <i>totally useless</i>
+</p>
+
+</section>
+<section id="sec-5-15" >
 
 <h3>Recap</h3>
 <ul class="org-ul">
-<li>Things don&rsquo;t change in place
+<li class="fragment roll-in">Things don&rsquo;t change in place
 </li>
-<li>The future is a function of the past
+<li class="fragment roll-in">The future is a function of the past
 <ul class="org-ul">
 <li>The future does not <i>change</i> the past
 </li>
 </ul>
 </li>
-<li>Concurrency makes everything worse
+<li class="fragment roll-in">Concurrency makes everything worse
 </li>
 </ul>
 </section>
@@ -1030,8 +1147,9 @@ Since Clojure 1.0
 
 <pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">defn</span> <span style="color: #006699;">transfer</span>
   <span style="color: #7388D6;">[</span>amount from to<span style="color: #7388D6;">]</span>
-  <span style="color: #7388D6;">(</span>alter from - amount<span style="color: #7388D6;">)</span>
-  <span style="color: #7388D6;">(</span>alter to + amount<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">dosync</span>
+   <span style="color: #909183;">(</span>alter from - amount<span style="color: #909183;">)</span>
+   <span style="color: #909183;">(</span>alter to + amount<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
 </pre>
 </div>
 
@@ -1113,6 +1231,109 @@ Since Clojure 1.0
 </section>
 <section id="sec-8-11" >
 
+<h3>Implementation</h3>
+<p>
+Pretty intricate
+</p>
+
+<ul class="org-ul">
+<li>MVCC + adaptive history queues
+</li>
+<li>This gives you snapshot isolation
+</li>
+<li>One global counter: the ref timestamp
+</li>
+</ul>
+
+</section>
+<section id="sec-8-12" >
+
+<h3>Create a transaction</h3>
+<ul class="org-ul">
+<li>Gets a unique identifier
+</li>
+<li>Gets the <i>current timestamp</i>: &ldquo;read point&rdquo;
+</li>
+</ul>
+
+</section>
+<section id="sec-8-13" >
+
+<h3>Do stuff inside transaction</h3>
+<ul class="org-ul">
+<li>Per-transaction &ldquo;cache&rdquo;
+</li>
+<li>Keep track of writes, ensures, commutes
+</li>
+</ul>
+
+</section>
+<section id="sec-8-14" >
+
+<h3>(Try to) commit the transaction</h3>
+<ul class="org-ul">
+<li>Compare our timestamps with global timestamps
+</li>
+<li>Conflict? Retry!
+</li>
+</ul>
+
+</section>
+<section id="sec-8-15" >
+
+<h3>Retry? That sounds inefficient</h3>
+<p>
+Implementation has a number of clever tricks&#x2026;
+</p>
+
+</section>
+<section id="sec-8-16" >
+
+<h3>Locks + wait/notify</h3>
+<ul class="org-ul">
+<li>Internal dependency tracking
+</li>
+<li>(vs. optimistic lock-free spinning)
+</li>
+<li>Avoids churn (constant retrying without progress)
+</li>
+</ul>
+
+</section>
+<section id="sec-8-17" >
+
+<h3>Barging</h3>
+<ul class="org-ul">
+<li class="fragment roll-in">Writes are publicly marked as being-written-to
+</li>
+<li class="fragment roll-in">Eager detection of write conflicts, <i>before</i> commit
+</li>
+<li class="fragment roll-in">Oldest transaction continues, new one restarts
+</li>
+<li class="fragment roll-in">This clearly violates isolation
+<ul class="org-ul">
+<li>Remember: isolation is <i>just a model</i>
+</li>
+<li>No promises about how it actually works
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-8-18" >
+
+<h3>It all comes together</h3>
+<ul class="org-ul">
+<li>Relies on speculative execution
+</li>
+<li>Needs persistent data structures!
+</li>
+</ul>
+
+</section>
+<section id="sec-8-19" >
+
 <h3><code>@Raw</code></h3>
 <aside class="notes">
 <p>
@@ -1123,13 +1344,13 @@ But @Raw makes me sad
 </aside>
 
 </section>
-<section id="sec-8-12" >
+<section id="sec-8-20" >
 
 <h3>Need a synchronization primitive?</h3>
 <img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-8-13" >
+<section id="sec-8-21" >
 
 <h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
@@ -1164,7 +1385,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-8-14" >
+<section id="sec-8-22" >
 
 <h3>Failure modes</h3>
 <ul class="org-ul">
@@ -1175,7 +1396,7 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-8-15" >
+<section id="sec-8-23" >
 
 <h3>Comparison</h3>
 <p>
@@ -1344,7 +1565,15 @@ My spell checker is not convinced these are words
 
 <h3><code>reduce</code></h3>
 <p>
-<code>(defn sum [coll] (reduce + coll))</code>
+<code>(reduce f coll)</code>
+</p>
+
+<p>
+(accumulate over <code>coll</code> with <code>f</code>)
+</p>
+
+<p>
+<code>(reduce + [1 2 3 4]) ;; =&gt; 10</code>
 </p>
 
 </section>
@@ -1370,14 +1599,14 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 <section id="sec-10-8" >
 
 <h3>Big idea</h3>
+<p>
+Extract the <i>essence</i> of map, reduce&#x2026;
+</p>
+
 <ul class="org-ul">
-<li>Extract the <i>essence</i> of map, reduce&#x2026;
+<li>Not just for colls, channels&#x2026;
 </li>
-<li>Specifically, remove collections
-</li>
-<li>Turn them into <i>process transformations</i>
-</li>
-<li>Very &ldquo;functional&rdquo;
+<li>Implement as <i>process transformations</i>
 </li>
 </ul>
 
@@ -1399,7 +1628,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </section>
 <section id="sec-10-10" >
 
-<h3>Example with map</h3>
+<h3>Transducer vs regular map</h3>
 <p>
 <code>(map f)</code>
 </p>
@@ -1412,12 +1641,49 @@ vs.
 <code>(map f coll)</code>
 </p>
 
+</section>
+<section id="sec-10-11" >
+
+<h3>Transducer vs partial map</h3>
+<p>
+<code>(map f)</code>
+</p>
+
+<p>
+vs.
+</p>
+
 <p>
 <code>(partial map f)</code>
 </p>
 
 </section>
-<section id="sec-10-11" >
+<section id="sec-10-12" >
+
+<h3>So what can I do with transducers?</h3>
+<p>
+(Examples adapted from Rich Hickey&rsquo;s Strange Loop talk)
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">Build concrete collections</span>
+<span style="color: #D65921;">(</span>into airplane process-bags pallets<span style="color: #D65921;">)</span>
+
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">Build a lazy sequence</span>
+<span style="color: #D65921;">(</span>sequence process-bags pallets<span style="color: #D65921;">)</span>
+
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">"Reduce" a collection</span>
+<span style="color: #D65921;">(</span>transduce <span style="color: #7388D6;">(</span>comp process-bags <span style="color: #909183;">(</span>map weigh<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+           + pallets<span style="color: #D65921;">)</span>
+
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">core.async channels</span>
+<span style="color: #D65921;">(</span>chan 1 process-bags<span style="color: #D65921;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-10-13" >
 
 <h3>Example use case</h3>
 <p>
@@ -1427,28 +1693,63 @@ vs.
 <img src="./media/EggTransducer/Setup.jpg" alt="Setup.jpg" />
 
 </section>
-<section id="sec-10-12" >
+<section id="sec-10-14" >
 
 <h3>Probe + heater + egg + Arduino</h3>
 <img src="./media/EggTransducer/Heater.jpg" alt="Heater.jpg" />
 
 </section>
-<section id="sec-10-13" >
+<section id="sec-10-15" >
 
 <h3>Results: delicious!</h3>
 <img src="./media/EggTransducer/Results.jpg" alt="Results.jpg" />
 
 </section>
-<section id="sec-10-14" >
+<section id="sec-10-16" >
 
 <h3>Big example</h3>
-<p>
-<del>Stole</del> Borrowed from Rich Hickey at Strange Loop
-</p>
+<ul class="org-ul">
+<li><del>Stole</del> adapted from Rich Hickey at Strange Loop
+</li>
+<li>Airport: airplanes get loaded with luggage
+</li>
+<li>What happens to luggage is a process
+</li>
+</ul>
 
-<p>
-TODO: actually steal
-</p>
+</section>
+<section id="sec-10-17" >
+
+<h3>As a transducer</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span>comp
+ <span style="color: #7388D6;">(</span>mapcat unbundle-pallet<span style="color: #7388D6;">)</span>
+ <span style="color: #7388D6;">(</span>take-while <span style="color: #909183;">(</span>complement ticking?<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+ <span style="color: #7388D6;">(</span>filter <span style="color: #909183;">(</span>complement smells-like-food?<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span>
+ <span style="color: #7388D6;">(</span>map label-heavy-items<span style="color: #7388D6;">)</span>
+ <span style="color: #7388D6;">(</span>take max-plane-capacity<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-10-18" >
+
+<h3>Why is this awesome?</h3>
+<ul class="org-ul">
+<li>Fast!
+</li>
+<li>Efficient (no intermediate collections)
+</li>
+<li>Concrete re-use!
+<ul class="org-ul">
+<li>Across sources
+</li>
+<li>Direct re-use of transducers
+</li>
+</ul>
+</li>
+</ul>
 </section>
 
 </section>

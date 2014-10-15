@@ -88,10 +88,27 @@
 
    #+ATTR_REVEAL: :frag roll-in
    * Immutability & functional programming
-   * JVM, but also JS back-ends
-   * Generally purpose
+   * JVM, also JS & CLR
+   * General purpose
+   * Live and REPL-based programming
    * "Just /do/ it already" (my favorite)
    * ...
+
+** Live and REPL-based programming
+
+   How long does it take to try something?
+
+   * C++: /ages/
+   * Python, Go: pretty fast
+   * Clojure: ~C-c C-e~
+
+** Live and REPL-based programming
+
+   [[./media/LiveDevelopment.png]]
+
+** Meta-eX
+
+   [[./media/MetaEx.jpg]]
 
 ** Just do it already
 
@@ -247,21 +264,65 @@
 
 ** Why are we here?
 
-   Imperative programming!
+   Imperative, single-threaded programming!
 
-   * No concept of /time/
+   #+ATTR_REVEAL: :frag roll-in
+   * You can work around mutability
+   * ... iff you're the only actor!
+
+** What's wrong?
+
+   No concept of /time/ or /transitions/
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Stop the world, do some stuff, continue
    * Everything happens "right now"
+   * That's great, but I have /n/ cores...
 
-** "Can't cross the same river twice"
+** Idea of values isn't new
 
-   (Heraclitus, ~500 BC)
+   "No man can cross the same river twice."
+
+   -- Heraclitus, ~500 BC
 
 ** Value, identity, state
 
    [[./media/ValueIdentityState.svg]]
 
+** Identity is just a name
+
+   The river doesn't stop existing just because nobody is around to call
+   it a river...
+
+** States are facts
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Fact ~ Lat. factum: "done"
+   * Perfect tense! Does not change!
+   * Example
+     * Bill Clinton was president of the US.
+     * We can have new presidents
+     * Doesn't change that fact!
+
+** We need facts for knowledge
+
+   #+ATTR_REVEAL: :frag roll-in
+   * We combine, compare facts to make decisions
+     * /especially/ from different time points
+   * Imagine if you only knew current state!
+     * Ever seen "Memento"?
+
+** Our own systems do this
+
+   E.g. logs, source control
+
+   What if they destroyed data?
+
+   They would be /totally useless/
+
 ** Recap
 
+   #+ATTR_REVEAL: :frag roll-in
    * Things don't change in place
    * The future is a function of the past
      * The future does not /change/ the past
@@ -484,8 +545,9 @@
    #+BEGIN_SRC clojure
      (defn transfer
        [amount from to]
-       (alter from - amount)
-       (alter to + amount))
+       (dosync
+        (alter from - amount)
+        (alter to + amount)))
    #+END_SRC
 
 ** ~alter~ vs ~commute~
@@ -537,6 +599,54 @@
      ;; "Elapsed time: 305.23 msecs"
      ;; Without delay: virtually instant, so 3 txn attempts
    #+END_SRC
+
+** Implementation
+
+   Pretty intricate
+
+   * MVCC + adaptive history queues
+   * This gives you snapshot isolation
+   * One global counter: the ref timestamp
+
+** Create a transaction
+
+   * Gets a unique identifier
+   * Gets the /current timestamp/: "read point"
+
+** Do stuff inside transaction
+
+   * Per-transaction "cache"
+   * Keep track of writes, ensures, commutes
+
+** (Try to) commit the transaction
+
+   * Compare our timestamps with global timestamps
+   * Conflict? Retry!
+
+** Retry? That sounds inefficient
+
+   Implementation has a number of clever tricks...
+
+** Locks + wait/notify
+
+   * Internal dependency tracking
+   * (vs. optimistic lock-free spinning)
+   * Avoids churn (constant retrying without progress)
+
+** Barging
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Writes are publicly marked as being-written-to
+   * Eager detection of write conflicts, /before/ commit
+   * Oldest transaction continues, new one restarts
+   * This clearly violates isolation
+     * Remember: isolation is /just a model/
+     * No promises about how it actually works
+
+** It all comes together
+
+   * Relies on speculative execution
+   * Needs persistent data structures!
 
 ** ~@Raw~
 
@@ -654,7 +764,11 @@
 
 ** ~reduce~
 
-   ~(defn sum [coll] (reduce + coll))~
+   ~(reduce f coll)~
+
+   (accumulate over ~coll~ with ~f~)
+
+   ~(reduce + [1 2 3 4]) ;; => 10~
 
 ** Problem!
 
@@ -667,10 +781,10 @@
 
 ** Big idea
 
-   * Extract the /essence/ of map, reduce...
-   * Specifically, remove collections
-   * Turn them into /process transformations/
-   * Very "functional"
+   Extract the /essence/ of map, reduce...
+
+   * Not just for colls, channels...
+   * Implement as /process transformations/
 
 ** Processes
 
@@ -679,7 +793,7 @@
    * Example: building a collection
    * Generally: seeded left reduce
 
-** Example with map
+** Transducer vs regular map
 
    ~(map f)~
 
@@ -687,7 +801,33 @@
 
    ~(map f coll)~
 
+** Transducer vs partial map
+
+   ~(map f)~
+
+     vs.
+
    ~(partial map f)~
+
+** So what can I do with transducers?
+
+   (Examples adapted from Rich Hickey's Strange Loop talk)
+
+   #+BEGIN_SRC clojure
+     ;; Build concrete collections
+     (into airplane process-bags pallets)
+
+     ;; Build a lazy sequence
+     (sequence process-bags pallets)
+
+     ;; "Reduce" a collection
+     (transduce (comp process-bags (map weigh))
+                + pallets)
+
+     ;; core.async channels
+     (chan 1 process-bags)
+
+   #+END_SRC
 
 ** Example use case
 
@@ -705,9 +845,28 @@
 
 ** Big example
 
-   +Stole+ Borrowed from Rich Hickey at Strange Loop
+   * +Stole+ adapted from Rich Hickey at Strange Loop
+   * Airport: airplanes get loaded with luggage
+   * What happens to luggage is a process
 
-   TODO: actually steal
+** As a transducer
+
+   #+BEGIN_SRC clojure
+     (comp
+      (mapcat unbundle-pallet)
+      (take-while (complement ticking?))
+      (filter (complement smells-like-food?))
+      (map label-heavy-items)
+      (take max-plane-capacity))
+   #+END_SRC
+
+** Why is this awesome?
+
+   * Fast!
+   * Efficient (no intermediate collections)
+   * Concrete re-use!
+     * Across sources
+     * Direct re-use of transducers
 
 * Macrology
 ** Code ≡ data
