@@ -436,6 +436,44 @@
    * In general (vs. other concurrency models):
      * Alternative to manual locking
 
+** Clojure API
+
+   * ~ref~ reference type
+   * ~dosync~ to make transactions
+   * ~alter~ and ~commute~ to modify
+     * (~ref-set~ to rudely modify)
+   * ~ensure~ to check the current value
+
+** Get the current value:
+
+   #+BEGIN_SRC clojure
+     (def n (ref "xyzzy"))
+
+     @n
+     ;; => "xyzzy"
+
+     (dosync
+      (prn @n))
+     ;; xyzzy
+
+   #+END_SRC
+
+** Modify inside transactions
+
+   #+BEGIN_SRC clojure
+     (def n (ref 0))
+
+     (alter n inc)
+     ;; IllegalStateException
+     ;; No transaction running ...
+     @n
+     ;; => 0
+
+     (dosync (alter n inc))
+     @n
+     ;; => 1
+   #+END_SRC
+
 ** STM example
 
 ** ~@Raw~
