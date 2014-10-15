@@ -429,6 +429,13 @@
    Since Clojure 1.0
    #+END_NOTES
 
+** What makes STM special?
+
+   * In Clojure (vs. other ref types):
+     * Coordination between refs
+   * In general (vs. other concurrency models):
+     * Alternative to manual locking
+
 ** STM example
 
 ** ~@Raw~
