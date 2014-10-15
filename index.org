@@ -6,6 +6,12 @@
 #+REVEAL_TRANS: linear
 #+REVEAL_THEME: lvh
 
+* Link to slides
+
+  ~http://www.lvh.io/ClojureIntro/~
+
+  ~https://www.github.com/lvh/ClojureIntro~
+
 * Introduction
 
 ** Who am I?
