@@ -558,8 +558,7 @@
 
     #+ATTR_REVEAL: :frag roll-in
     * ~Segmentation fault~
-    * Data corruption
-    * Silent data corruption
+    * (Silent?) data corruption
 
 ** Comparison
 
