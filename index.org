@@ -420,6 +420,7 @@
 
    #+ATTR_REVEAL: :frag roll-in
    * Software transactional memory
+   * Concurrency model
    * Transactions (ACI, not D)
    * Backed by MVCC
 
