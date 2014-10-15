@@ -870,9 +870,56 @@ Deep similarity!
 </section>
 <section id="sec-6-9" >
 
-<h3>STM</h3>
+<h3>Example: atoms</h3>
+<ul class="org-ul">
+<li><code>(atom init-val)</code>
+</li>
+<li><code>(swap! some-atom f &amp; args)</code> to modify
+<ul class="org-ul">
+<li><code>compare-and-set!</code> too (bit more low level)
+</li>
+</ul>
+</li>
+<li><code>reset!</code> to rudely modify
+</li>
+</ul>
+
+</section>
+<section id="sec-6-10" >
+
+<h3>Example: atoms</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">n</span> <span style="color: #7388D6;">(</span>atom 1<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+
+<span style="color: #D65921;">(</span>swap! n inc<span style="color: #D65921;">)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; 2</span>
+
+<span style="color: #D65921;">(</span>swap! n * 10<span style="color: #D65921;">)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; 20</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-6-11" >
+
+<h3>Transitions could be <code>swap!</code></h3>
+<img src="./media/ValueIdentityState.svg" alt="ValueIdentityState.svg" />
+</section>
+
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>STM</h2>
+</section>
+<section id="sec-7-1" >
+
+<h3>What is STM?</h3>
 <ul class="org-ul">
 <li class="fragment roll-in">Software transactional memory
+</li>
+<li class="fragment roll-in">Concurrency model
 </li>
 <li class="fragment roll-in">Transactions (ACI, not D)
 </li>
@@ -888,12 +935,170 @@ Since Clojure 1.0
 </aside>
 
 </section>
-<section id="sec-6-10" >
+<section id="sec-7-2" >
 
-<h3>STM example</h3>
+<h3>What makes STM special?</h3>
+<ul class="org-ul">
+<li>In Clojure (vs. other ref types):
+<ul class="org-ul">
+<li>Coordination between refs
+</li>
+</ul>
+</li>
+<li>In general (vs. other concurrency models):
+<ul class="org-ul">
+<li>Alternative to manual locking
+</li>
+</ul>
+</li>
+</ul>
 
 </section>
-<section id="sec-6-11" >
+<section id="sec-7-3" >
+
+<h3>Clojure API</h3>
+<ul class="org-ul">
+<li><code>ref</code> reference type
+</li>
+<li><code>dosync</code> to make transactions
+</li>
+<li><code>alter</code> and <code>commute</code> to modify
+<ul class="org-ul">
+<li>(<code>ref-set</code> to rudely modify)
+</li>
+</ul>
+</li>
+<li><code>ensure</code> to check the current value
+</li>
+</ul>
+
+</section>
+<section id="sec-7-4" >
+
+<h3>Get the current value:</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">n</span> <span style="color: #7388D6;">(</span>ref <span style="color: #008000;">"xyzzy"</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+
+@n
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; "xyzzy"</span>
+
+<span style="color: #D65921;">(</span><span style="color: #0000FF;">dosync</span>
+ <span style="color: #7388D6;">(</span>prn @n<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">xyzzy</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-7-5" >
+
+<h3>Modify inside transactions</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">n</span> <span style="color: #7388D6;">(</span>ref 0<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+
+<span style="color: #D65921;">(</span>alter n inc<span style="color: #D65921;">)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">IllegalStateException</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">No transaction running ...</span>
+@n
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; 0</span>
+
+<span style="color: #D65921;">(</span><span style="color: #0000FF;">dosync</span> <span style="color: #7388D6;">(</span>alter n inc<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+@n
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; 1</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-7-6" >
+
+<h3>STM example</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">defn</span> <span style="color: #006699;">transfer</span>
+  <span style="color: #7388D6;">[</span>amount from to<span style="color: #7388D6;">]</span>
+  <span style="color: #7388D6;">(</span>alter from - amount<span style="color: #7388D6;">)</span>
+  <span style="color: #7388D6;">(</span>alter to + amount<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-7-7" >
+
+<h3><code>alter</code> vs <code>commute</code></h3>
+<ul class="org-ul">
+<li>Virtually the same thing
+</li>
+<li><code>commute</code> allows more orderings
+<ul class="org-ul">
+<li>More orderings: better concurrency
+</li>
+</ul>
+</li>
+<li>Are those orderings OK?
+<ul class="org-ul">
+<li>commutative <code>func</code>
+</li>
+<li>last-write-wins
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-7-8" >
+
+<h3>Example: <code>alter</code> vs <code>commute</code></h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">counter</span> <span style="color: #7388D6;">(</span>ref 0<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+
+<span style="color: #D65921;">(</span><span style="color: #0000FF;">defn</span> <span style="color: #006699;">slow-inc!</span>
+  <span style="color: #7388D6;">[</span>alter-fn counter<span style="color: #7388D6;">]</span>
+  <span style="color: #7388D6;">(</span><span style="color: #0000FF;">dosync</span>
+   <span style="color: #909183;">(</span><span style="color: #6434A3;">Thread</span>/sleep 100<span style="color: #909183;">)</span>
+   <span style="color: #909183;">(</span>alter-fn counter inc<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+
+<span style="color: #D65921;">(</span><span style="color: #0000FF;">defn</span> <span style="color: #006699;">bombard-counter!</span>
+  <span style="color: #7388D6;">[</span>n f counter<span style="color: #7388D6;">]</span>
+  <span style="color: #7388D6;">(</span>apply pcalls <span style="color: #909183;">(</span>repeat n #<span style="color: #709870;">(</span>f counter<span style="color: #709870;">)</span><span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-7-9" >
+
+<h3><code>alter</code> performance</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">dosync</span> <span style="color: #7388D6;">(</span>ref-set counter 0<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+<span style="color: #D65921;">(</span>time <span style="color: #7388D6;">(</span><span style="color: #0000FF;">doall</span> <span style="color: #909183;">(</span>bombard-counter! 20
+                               <span style="color: #709870;">(</span>partial slow-inc! alter<span style="color: #709870;">)</span>
+                               counter<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; (1 2 4 3 5 6 13 12 9 8 7 11 10 15 17 14 20 18 19 16)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">"Elapsed time: 2025.646 msecs"</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">20 incs * 100 ms = 2000 ms...</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-7-10" >
+
+<h3><code>commute</code> performance</h3>
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">dosync</span> <span style="color: #7388D6;">(</span>ref-set counter 0<span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+<span style="color: #D65921;">(</span>time <span style="color: #7388D6;">(</span><span style="color: #0000FF;">doall</span> <span style="color: #909183;">(</span>bombard-counter! 20
+                               <span style="color: #709870;">(</span>partial slow-inc! commute<span style="color: #709870;">)</span>
+                               counter<span style="color: #909183;">)</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">=&gt; (3 6 1 1 7 1 1 8 8 8 8 8 10 14 15 15 19 15 15 19)</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">"Elapsed time: 305.23 msecs"</span>
+<span style="color: #8D8D84;">;; </span><span style="color: #8D8D84; font-style: italic;">Without delay: virtually instant, so 3 txn attempts</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-7-11" >
 
 <h3><code>@Raw</code></h3>
 <aside class="notes">
@@ -905,13 +1110,13 @@ But @Raw makes me sad
 </aside>
 
 </section>
-<section id="sec-6-12" >
+<section id="sec-7-12" >
 
 <h3>Need a synchronization primitive?</h3>
 <img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
 
 </section>
-<section id="sec-6-13" >
+<section id="sec-7-13" >
 
 <h3>Locks are <i>incredibly</i> hard to use</h3>
 <ul class="org-ul">
@@ -946,20 +1151,18 @@ But @Raw makes me sad
 </ul>
 
 </section>
-<section id="sec-6-14" >
+<section id="sec-7-14" >
 
 <h3>Failure modes</h3>
 <ul class="org-ul">
 <li class="fragment roll-in"><code>Segmentation fault</code>
 </li>
-<li class="fragment roll-in">Data corruption
-</li>
-<li class="fragment roll-in">Silent data corruption
+<li class="fragment roll-in">(Silent?) data corruption
 </li>
 </ul>
 
 </section>
-<section id="sec-6-15" >
+<section id="sec-7-15" >
 
 <h3>Comparison</h3>
 <p>
@@ -977,11 +1180,79 @@ GC and lifetime analysis
 
 </section>
 <section>
-<section id="sec-7" >
+<section id="sec-8" >
+
+<h2>Concurrency in practice</h2>
+</section>
+<section id="sec-8-1" >
+
+<h3>New users</h3>
+<ul class="org-ul">
+<li>Used to imperative patterns
+</li>
+<li>They want variables
+<ul class="org-ul">
+<li>How else would you write software?
+</li>
+</ul>
+</li>
+<li>Result: atoms, atoms everywhere
+<ul class="org-ul">
+<li>Eventually: sadness
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-8-2" >
+
+<h3>Usage pattern: 1 big atom</h3>
+<p>
+One atom, usually with a map, to hold state:
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure"><span style="color: #D65921;">(</span><span style="color: #0000FF;">def</span> <span style="color: #BA36A5;">app-state</span>
+  <span style="color: #7388D6;">(</span>atom <span style="color: #909183;">{</span><span style="color: #D0372D;">:user-name</span> <span style="color: #008000;">"lvh"</span>
+         <span style="color: #D0372D;">:todo-items</span> <span style="color: #709870;">[</span><span style="color: #008000;">"Take out trash"</span>
+                      <span style="color: #008000;">"Present Clojure intro"</span><span style="color: #709870;">]</span>
+         <span style="color: #D0372D;">:done-items</span> #<span style="color: #709870;">{</span><span style="color: #008000;">"Make slides"</span><span style="color: #709870;">}</span><span style="color: #909183;">}</span><span style="color: #7388D6;">)</span><span style="color: #D65921;">)</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-8-3" >
+
+<h3>Why not STM?</h3>
+<p>
+I don&rsquo;t know for sure, but I have some hypotheses:
+</p>
+
+<ul class="org-ul">
+<li><i>Real</i> app state usually less than you might think
+</li>
+<li>High concurrency is not always necessary
+</li>
+<li>Single atom still allows sane state changes
+</li>
+<li>Easy to dump current state: reproducibility!
+</li>
+</ul>
+
+<p>
+Real answer is probably all of the above &amp; more :-)
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-9" >
 
 <h2>Transducers</h2>
 </section>
-<section id="sec-7-1" >
+<section id="sec-9-1" >
 
 <h3>Fairly new feature</h3>
 <p>
@@ -989,7 +1260,7 @@ GC and lifetime analysis
 </p>
 
 </section>
-<section id="sec-7-2" >
+<section id="sec-9-2" >
 
 <h3>Only bad part is the name</h3>
 <ul class="org-ul">
@@ -1010,7 +1281,7 @@ GC and lifetime analysis
 </ul>
 
 </section>
-<section id="sec-7-3" >
+<section id="sec-9-3" >
 
 <h3>Monads</h3>
 <p>
@@ -1024,7 +1295,7 @@ My spell checker is not convinced these are words
 </aside>
 
 </section>
-<section id="sec-7-4" >
+<section id="sec-9-4" >
 
 <h3><code>map</code></h3>
 <p>
@@ -1040,7 +1311,7 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-7-5" >
+<section id="sec-9-5" >
 
 <h3><code>filter</code></h3>
 <p>
@@ -1056,7 +1327,7 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-7-6" >
+<section id="sec-9-6" >
 
 <h3><code>reduce</code></h3>
 <p>
@@ -1064,7 +1335,7 @@ My spell checker is not convinced these are words
 </p>
 
 </section>
-<section id="sec-7-7" >
+<section id="sec-9-7" >
 
 <h3>Problem!</h3>
 <p>
@@ -1083,7 +1354,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </ul>
 
 </section>
-<section id="sec-7-8" >
+<section id="sec-9-8" >
 
 <h3>Big idea</h3>
 <ul class="org-ul">
@@ -1098,7 +1369,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </ul>
 
 </section>
-<section id="sec-7-9" >
+<section id="sec-9-9" >
 
 <h3>Processes</h3>
 <ul class="org-ul">
@@ -1113,7 +1384,7 @@ We kept implementing <code>map</code>, <code>reduce</code>, etc.
 </ul>
 
 </section>
-<section id="sec-7-10" >
+<section id="sec-9-10" >
 
 <h3>Example with map</h3>
 <p>
@@ -1133,7 +1404,7 @@ vs.
 </p>
 
 </section>
-<section id="sec-7-11" >
+<section id="sec-9-11" >
 
 <h3>Example use case</h3>
 <p>
@@ -1143,19 +1414,19 @@ vs.
 <img src="./media/EggTransducer/Setup.jpg" alt="Setup.jpg" />
 
 </section>
-<section id="sec-7-12" >
+<section id="sec-9-12" >
 
 <h3>Probe + heater + egg + Arduino</h3>
 <img src="./media/EggTransducer/Heater.jpg" alt="Heater.jpg" />
 
 </section>
-<section id="sec-7-13" >
+<section id="sec-9-13" >
 
 <h3>Results: delicious!</h3>
 <img src="./media/EggTransducer/Results.jpg" alt="Results.jpg" />
 
 </section>
-<section id="sec-7-14" >
+<section id="sec-9-14" >
 
 <h3>Big example</h3>
 <p>
@@ -1169,11 +1440,11 @@ TODO: actually steal
 
 </section>
 <section>
-<section id="sec-8" >
+<section id="sec-10" >
 
 <h2>Macrology</h2>
 </section>
-<section id="sec-8-1" >
+<section id="sec-10-1" >
 
 <h3>Code ≡ data</h3>
 <p>
@@ -1189,7 +1460,7 @@ Many basic &ldquo;language features&rdquo; are macros:
 </p>
 
 </section>
-<section id="sec-8-2" >
+<section id="sec-10-2" >
 
 <h3>Domain specific languages</h3>
 <ul class="org-ul">
@@ -1200,20 +1471,20 @@ Many basic &ldquo;language features&rdquo; are macros:
 
 </section>
 <section>
-<section id="sec-9" >
+<section id="sec-11" >
 
 <h2>Polymorphism</h2>
 </section>
-<section id="sec-9-1" >
+<section id="sec-11-1" >
 
 <h3>Protocols</h3>
 </section>
-<section id="sec-9-2" >
+<section id="sec-11-2" >
 
 <h3>Multimethods</h3>
 
 </section>
-<section id="sec-9-3" >
+<section id="sec-11-3" >
 
 <h3><code>x.m(a, b, c)</code></h3>
 <p>
@@ -1221,7 +1492,7 @@ Which <code>m</code>?
 </p>
 
 </section>
-<section id="sec-9-4" >
+<section id="sec-11-4" >
 
 <h3><code>m</code> depends on type of <code>x</code></h3>
 <ul class="org-ul">
@@ -1238,7 +1509,7 @@ C# 4.0 apparently supports multimethods
 </aside>
 
 </section>
-<section id="sec-9-5" >
+<section id="sec-11-5" >
 
 <h3>Python: bit more complicated</h3>
 <p>
@@ -1257,7 +1528,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 </section>
-<section id="sec-9-6" >
+<section id="sec-11-6" >
 
 <h3>&ldquo;Sending a message&rdquo;</h3>
 <p>
@@ -1269,7 +1540,7 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </p>
 
 </section>
-<section id="sec-9-7" >
+<section id="sec-11-7" >
 
 <h3>No interesting differences</h3>
 <ul class="org-ul">
@@ -1280,12 +1551,12 @@ Not just type of <code>x</code>, but the value of <code>x.m</code>
 </ul>
 
 </section>
-<section id="sec-9-8" >
+<section id="sec-11-8" >
 
 <h3>We can do better!</h3>
 
 </section>
-<section id="sec-9-9" >
+<section id="sec-11-9" >
 
 <h3>Multimethods</h3>
 <p>
@@ -1293,7 +1564,7 @@ Routing logic: <code>f(x)</code>
 </p>
 
 </section>
-<section id="sec-9-10" >
+<section id="sec-11-10" >
 
 <h3>Example</h3>
 <p>
@@ -1303,11 +1574,11 @@ TODO: show examples in icecap
 
 </section>
 <section>
-<section id="sec-10" >
+<section id="sec-12" >
 
 <h2><code>core.logic</code></h2>
 </section>
-<section id="sec-10-1" >
+<section id="sec-12-1" >
 
 <h3>The Reasoned Schemer</h3>
 <img src="./media/ReasonedSchemer.jpg" alt="ReasonedSchemer.jpg" />
@@ -1315,16 +1586,16 @@ TODO: show examples in icecap
 
 </section>
 <section>
-<section id="sec-11" >
+<section id="sec-13" >
 
 <h2>Conclusion</h2>
 </section>
-<section id="sec-11-1" >
+<section id="sec-13-1" >
 
 <h3>A modern, pragmatic Lisp</h3>
 
 </section>
-<section id="sec-11-2" >
+<section id="sec-13-2" >
 
 <h3>Don&rsquo;t learn Clojure!</h3>
 <p>
@@ -1334,17 +1605,17 @@ Going back is painful ;-)
 
 </section>
 <section>
-<section id="sec-12" >
+<section id="sec-14" >
 
 <h2>Thank you!</h2>
 </section>
 </section>
 <section>
-<section id="sec-13" >
+<section id="sec-15" >
 
 <h2>Questions?</h2>
 </section>
-<section id="sec-13-1" >
+<section id="sec-15-1" >
 
 <h3>Suggested rants</h3>
 <p>
