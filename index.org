@@ -21,12 +21,7 @@
 
    #+BEGIN_NOTES
    * Software engineer (distributed systems, infosec)
-   #+END_NOTES
-
-** KUL
-
-   [[./media/KUL.gif]]
-
+   #+END_
 ** Rackspace
 
    #+ATTR_HTML: :style width:90%
