@@ -47,12 +47,30 @@
    #+ATTR_HTML: :style border:none
    [[./media/Clojure.png]]
 
+** BeClojure
+
+   #+ATTR_HTML: :style border:none
+   [[./media/Clojure.png]]
+
 ** Who are /you/?
 
+   * In this class? At KUL?
    * Functional programming?
      * HOF? ~map~, ~filter~, ~reduce~?
-   * Lisps?
-   * Clojure?
+   * Lisps? Clojure?
+
+** About this talk
+
+   A /lot/ of content
+
+   * Play it by ear
+   * Questions after every section
+   * 15m break in the middle
+
+** About this talk
+
+   * High-and-wide overview
+   * Lots of opinions, too
 
 * Hello, Clojure!
 ** What's Clojure?
@@ -354,7 +372,7 @@
    * Get data sharing for free
      * No defensive copying, cloning, locks...
    * Conclusion
-     * Maybe some operations are slow...
+     * Maybe some operations may be slower...
      * Entire program can still be faster!
 
 ** New possibilities
@@ -658,8 +676,7 @@
 
 ** Need a synchronization primitive?
 
-   #+ATTR_HTML: :style width:90%
-   [[./media/whynotzoidberg.png]]
+   Why not locks?
 
 ** Locks are /incredibly/ hard to use
 
@@ -842,7 +859,12 @@
 ** Results: delicious!
 
    [[./media/EggTransducer/Results.jpg]]
+     (def xform
+       (comp (partial map inc)
+             (partial filter odd?)
+             (partial map #(* 3 %))))
 
+     (xform [1 2 3])
 ** Big example
 
    * +Stole+ adapted from Rich Hickey at Strange Loop
@@ -926,7 +948,7 @@
 
 ** Example
 
-   TODO: show examples in icecap
+   Icecap example?
 
 * ~core.logic~
 

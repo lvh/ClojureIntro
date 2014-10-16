@@ -94,17 +94,51 @@ Staff member of PyCon US
 </section>
 <section id="sec-2-6" >
 
+<h3>BeClojure</h3>
+<img src="./media/Clojure.png" alt="Clojure.png" style="border:none" />
+
+</section>
+<section id="sec-2-7" >
+
 <h3>Who are <i>you</i>?</h3>
 <ul class="org-ul">
+<li>In this class? At KUL?
+</li>
 <li>Functional programming?
 <ul class="org-ul">
 <li>HOF? <code>map</code>, <code>filter</code>, <code>reduce</code>?
 </li>
 </ul>
 </li>
-<li>Lisps?
+<li>Lisps? Clojure?
 </li>
-<li>Clojure?
+</ul>
+
+</section>
+<section id="sec-2-8" >
+
+<h3>About this talk</h3>
+<p>
+A <i>lot</i> of content
+</p>
+
+<ul class="org-ul">
+<li>Play it by ear
+</li>
+<li>Questions after every section
+</li>
+<li>15m break in the middle
+</li>
+</ul>
+
+</section>
+<section id="sec-2-9" >
+
+<h3>About this talk</h3>
+<ul class="org-ul">
+<li>High-and-wide overview
+</li>
+<li>Lots of opinions, too
 </li>
 </ul>
 </section>
@@ -705,7 +739,7 @@ They would be <i>totally useless</i>
 </li>
 <li class="fragment roll-in">Conclusion
 <ul class="org-ul">
-<li>Maybe some operations are slow&#x2026;
+<li>Maybe some operations may be slower&#x2026;
 </li>
 <li>Entire program can still be faster!
 </li>
@@ -1347,7 +1381,9 @@ But @Raw makes me sad
 <section id="sec-8-20" >
 
 <h3>Need a synchronization primitive?</h3>
-<img src="./media/whynotzoidberg.png" alt="whynotzoidberg.png" style="width:90%" />
+<p>
+Why not locks?
+</p>
 
 </section>
 <section id="sec-8-21" >
@@ -1702,8 +1738,17 @@ vs.
 <section id="sec-10-15" >
 
 <h3>Results: delicious!</h3>
+<p>
 <img src="./media/EggTransducer/Results.jpg" alt="Results.jpg" />
+  (def xform
+    (comp (partial map inc)
+          (partial filter odd?)
+          (partial map #(* 3 %))))
+</p>
 
+<p>
+(xform [1 2 3])
+</p>
 </section>
 <section id="sec-10-16" >
 
@@ -1882,7 +1927,7 @@ Routing logic: <code>f(x)</code>
 
 <h3>Example</h3>
 <p>
-TODO: show examples in icecap
+Icecap example?
 </p>
 </section>
 
