@@ -21,7 +21,8 @@
 
    #+BEGIN_NOTES
    * Software engineer (distributed systems, infosec)
-   #+END_
+   #+END_NOTES
+
 ** Rackspace
 
    #+ATTR_HTML: :style width:90%
@@ -49,6 +50,10 @@
 
 ** Who are /you/?
 
+   [[./media/Audience.jpg]]
+
+** Who are /you/?
+
    * In this class? At KUL?
    * Functional programming?
      * HOF? ~map~, ~filter~, ~reduce~?
@@ -65,6 +70,8 @@
 ** About this talk
 
    * High-and-wide overview
+   * Bit of philosophy
+   * Bunch of facts
    * Lots of opinions, too
 
 * Hello, Clojure!
@@ -95,14 +102,18 @@
    Interpreters, high-level metaprogramming, garbage collection, dynamic programming, functional programming, programming with recursive functions...
    #+END_NOTES
 
+** Rich Hickey
+
+   [[./media/RichHickey.jpg]]
+
 ** What's so nice about it?
 
    Lots of reasons:
 
    #+ATTR_REVEAL: :frag roll-in
+   * JVM, JS & CLR
    * Immutability & functional programming
-   * JVM, also JS & CLR
-   * General purpose
+   * General purpose, pragmatic
    * Live and REPL-based programming
    * "Just /do/ it already" (my favorite)
    * ...
@@ -111,6 +122,7 @@
 
    How long does it take to try something?
 
+   #+ATTR_REVEAL: :frag roll-in
    * C++: /ages/
    * Python, Go: pretty fast
    * Clojure: ~C-c C-e~
@@ -123,6 +135,7 @@
 
    [[./media/MetaEx.jpg]]
 
+** Just /do/ it already
 ** Just do it already
 
    (Partial) static typing
@@ -854,12 +867,7 @@
 ** Results: delicious!
 
    [[./media/EggTransducer/Results.jpg]]
-     (def xform
-       (comp (partial map inc)
-             (partial filter odd?)
-             (partial map #(* 3 %))))
 
-     (xform [1 2 3])
 ** Big example
 
    * +Stole+ adapted from Rich Hickey at Strange Loop
